@@ -23,11 +23,11 @@ export default css`
   :root {
     --primary-light: ${Colors.primaryLight};
     --primary: ${Colors.primary};
-    --primaryDark: ${Colors.primaryDark};
+    --primary-dark: ${Colors.primaryDark};
 
-    --secondaryLight: ${Colors.secondaryLight};
+    --secondary-light: ${Colors.secondaryLight};
     --secondary: ${Colors.secondary};
-    --secondaryDark: ${Colors.secondaryDark};
+    --secondary-dark: ${Colors.secondaryDark};
 
     --light: ${Colors.light};
     --lightest: ${Colors.lightest};

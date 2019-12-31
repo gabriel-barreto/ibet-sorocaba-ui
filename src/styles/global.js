@@ -152,5 +152,5 @@ export default createGlobalStyle`
       text-rendering: optimizeLegibility;
   }
 
-  ${colors};
+  ${colors}
 `;

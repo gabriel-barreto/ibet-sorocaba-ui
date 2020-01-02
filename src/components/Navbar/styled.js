@@ -361,6 +361,8 @@ export const NavLink = styled(Link)`
 
 const activeNavbar = css`
   &.--active {
+    background-color: var(--darkest);
+
     ${NavTogglerIcon} {
       & {
         transform: rotate(-45deg);
@@ -384,15 +386,17 @@ const activeNavbar = css`
 
 export const Navbar = styled.section`
   align-items: center;
-  background-color: var(--darkest);
-  box-shadow: 0 2px 4px ${chroma(Colors.darkest).alpha(0.32)};
+  /* background-color: var(--darkest); */
+  /* box-shadow: 0 2px 4px ${chroma(Colors.darkest).alpha(0.32)}; */
   display: flex;
   height: 8rem;
   left: 0;
   padding: 0 3.2rem;
   position: fixed;
   top: 0;
+  transition: background-color 400ms;
   width: 100%;
+  will-change: background-color;
   z-index: 9;
 
   @media (min-width: 1200px) {

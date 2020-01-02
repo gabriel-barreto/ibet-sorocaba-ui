@@ -5,8 +5,7 @@ import * as C from './content';
 import * as S from './styled';
 
 function Navbar({ title }) {
-  // const [state, setState] = useState({ active: false });
-  const [state, setState] = useState({ active: true });
+  const [state, setState] = useState({ active: false });
 
   function onTogglerActiveHandler() {
     return setState(prev => ({ ...prev, active: !prev.active }));

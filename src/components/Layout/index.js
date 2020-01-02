@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Navbar from '../Navbar';
 import SEO from '../SEO';
 
 function Layout({ children, title }) {
   return (
     <>
       <SEO title={title} />
-      <header>Header</header>
-      <main>{children}</main>
+      <header id="app-header">
+        <Navbar title={title} />
+      </header>
+      <main id="app-main">{children}</main>
     </>
   );
 }

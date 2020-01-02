@@ -4,59 +4,6 @@ import PropTypes from 'prop-types';
 import * as C from './content';
 import * as S from './styled';
 
-import brand from '../../assets/brand.png';
-import brandSmall from '../../assets/brand-sm.png';
-
-const links = [
-  { label: 'Home', to: '/' },
-  { label: 'IBET Sorocaba', to: '/ibet-sorocaba' },
-  { label: 'IBET Brasil', to: '/ibet-brasil' },
-  { label: 'Especialização', to: '/especializacao' },
-  { label: 'Mestrado', to: '/mestrado' },
-  { label: 'Membros', to: '/membros' },
-  { label: 'Inscreva-se', to: '/inscreva-se', featured: true },
-];
-
-const social = [
-  {
-    label: 'Facebook',
-    url: 'https://facebook.com/ibet-sorocaba',
-    icon: C.Icons.facebook,
-  },
-  {
-    label: 'Instagram',
-    url: 'https://instagram.com/ibet-sorocaba',
-    icon: C.Icons.instagram,
-  },
-  {
-    label: 'Linkedin',
-    url: 'https://linkedin.com/ibet-sorocaba',
-    icon: C.Icons.linkedin,
-  },
-];
-
-const infos = [
-  {
-    icon: C.Icons.email,
-    value: 'sod@ibet.com.br',
-    url: 'mailto://sod@ibet.com.br',
-  },
-  {
-    icon: C.Icons.phone,
-    value: '+55 15 3202-7783',
-    url: 'tel://+55 15 3202-7783',
-  },
-  {
-    icon: C.Icons.student,
-    value: 'Acessar Área de Alunos',
-    url: '#',
-    featured: true,
-  },
-];
-
-const brandTitle =
-  'IBET - Intstituto Brasileiro de Estudos Tributários de Sorocaba';
-
 function Navbar({ title }) {
   // const [state, setState] = useState({ active: false });
   const [state, setState] = useState({ active: true });
@@ -74,22 +21,22 @@ function Navbar({ title }) {
       <S.NavBrandWrapper className="navbar-brand">
         <picture>
           <S.NavBandAlternate
-            srcSet={brand}
+            srcSet={C.images.brand}
             className="brand"
             media="(min-width: 1200px)"
           />
           <S.NavBrand
-            src={brandSmall}
+            src={C.images.brandSmall}
             className="brand"
-            alt={brandTitle}
-            title={brandTitle}
+            alt={C.brandTitle}
+            title={C.brandTitle}
           />
         </picture>
       </S.NavBrandWrapper>
       <S.NavbarContent>
         <S.NavbarSocial>
           <S.NavbarSocialGroup className="--row">
-            {social.map(each => (
+            {C.social.map(each => (
               <S.NavbarSocialButton
                 key={each.url}
                 href={each.url}
@@ -105,7 +52,7 @@ function Navbar({ title }) {
             ))}
           </S.NavbarSocialGroup>
           <S.NavbarSocialGroup>
-            {infos.map(each => (
+            {C.infos.map(each => (
               <S.NavbarSocialInfo
                 key={each.url}
                 href={each.url}
@@ -123,7 +70,7 @@ function Navbar({ title }) {
           </S.NavbarSocialGroup>
         </S.NavbarSocial>
         <S.NavbarNav className="navbar-nav">
-          {links.map(each => (
+          {C.links.map(each => (
             <S.NavLink
               key={each.to}
               className={`${each.label === title ? '--active' : ''} ${

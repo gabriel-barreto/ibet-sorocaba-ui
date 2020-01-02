@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import * as C from './content';
 import * as S from './styled';
 
 import brand from '../../assets/brand.png';
+import brandSmall from '../../assets/brand-sm.png';
 
 const links = [
   { label: 'Home', to: '/' },
@@ -53,18 +54,44 @@ const infos = [
   },
 ];
 
+const brandTitle =
+  'IBET - Intstituto Brasileiro de Estudos Tributários de Sorocaba';
+
 function Navbar({ title }) {
+  // const [state, setState] = useState({ active: false });
+  const [state, setState] = useState({ active: true });
+
+  function onTogglerActiveHandler() {
+    return setState(prev => ({ ...prev, active: !prev.active }));
+  }
+
   return (
-    <S.Navbar className="navbar">
+    <S.Navbar className={`navbar ${state.active ? '--active' : ''}`}>
       <S.NavTitle className="navbar-title">{title}</S.NavTitle>
+      <S.NavTogglerButton type="button" onClick={onTogglerActiveHandler}>
+        <S.NavTogglerIcon />
+      </S.NavTogglerButton>
       <S.NavBrandWrapper className="navbar-brand">
-        <S.NavBrand src={brand} className="brand" />
+        <picture>
+          <S.NavBandAlternate
+            srcSet={brand}
+            className="brand"
+            media="(min-width: 1200px)"
+          />
+          <S.NavBrand
+            src={brandSmall}
+            className="brand"
+            alt={brandTitle}
+            title={brandTitle}
+          />
+        </picture>
       </S.NavBrandWrapper>
       <S.NavbarContent>
         <S.NavbarSocial>
-          <S.NavbarSocialGroup>
+          <S.NavbarSocialGroup className="--row">
             {social.map(each => (
               <S.NavbarSocialButton
+                key={each.url}
                 href={each.url}
                 target="_blank"
                 rel="noreferrer noopener"
@@ -80,6 +107,7 @@ function Navbar({ title }) {
           <S.NavbarSocialGroup>
             {infos.map(each => (
               <S.NavbarSocialInfo
+                key={each.url}
                 href={each.url}
                 target="_blank"
                 className={each.featured ? '--featured' : ''}

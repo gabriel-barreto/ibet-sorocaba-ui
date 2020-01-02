@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           {Routes.map(each => (
-            <Route {...each} />
+            <Route key={each.name} {...each} />
           ))}
           <Redirect from="*" to="/" />
         </Switch>

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Navbar from '../Navbar';
+import PageTitle from '../PageTitle';
 import SEO from '../SEO';
 
 function Layout({ children, title }) {
@@ -10,6 +11,7 @@ function Layout({ children, title }) {
       <SEO title={title} />
       <header id="app-header">
         <Navbar title={title} />
+        <PageTitle title={title} />
       </header>
       <main id="app-main">{children}</main>
     </>

@@ -8,12 +8,13 @@ export const PageTitleWrapper = styled.section`
   align-items: center;
   background: ${props =>
     props.bg
-      ? `linear-gradient(to bottom, var(--darkest) 0%, ${chroma(
-          Colors.dark,
-        ).alpha(0.32)} 100%), url(${props.bg})`
+      ? `linear-gradient(to bottom, ${chroma(Colors.dark).alpha(
+        0.56,
+      )} 0%, ${chroma(Colors.dark)} 80%), url(${props.bg})`
       : 'var(--dark)'};
   background-attachment: fixed;
   background-blend-mode: multiply;
+  background-position: center;
   display: flex;
   flex-direction: column;
   height: ${props => (props.small ? '54vh' : '100vh')};
@@ -40,9 +41,12 @@ export const PageTitleText = styled.h1`
   font-weight: 800;
   line-height: 144%;
   text-align: center;
+  text-transform: uppercase;
 
   ${hiddenPageTitleText};
 `;
+
+export const PageTitleFeaturedTitles = styled.span``;
 
 export const PageTitleFeaturedContainer = styled.div`
   background-color: var(--darkest);
@@ -52,6 +56,24 @@ export const PageTitleFeaturedContainer = styled.div`
   padding: 3.2rem 1.6rem;
   position: absolute;
   width: calc(100% - 64px);
+  @media (min-width: 768px) {
+    left: 64px;
+    max-width: calc(100% - 128px);
+  }
+  @media (min-width: 1200px) {
+    align-items: center;
+    column-gap: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    left: calc((100% - 1200px) / 2);
+    max-width: 1200px;
+    padding: 3.2rem;
+  }
+  @media (min-width: 1400px) {
+    left: calc((100% - 1400px) / 2);
+    max-width: 1400px;
+  }
 `;
 
 export const PageTitleFeaturedTitle = styled.h2`
@@ -61,7 +83,7 @@ export const PageTitleFeaturedTitle = styled.h2`
   line-height: 144%;
   text-align: center;
   @media (min-width: 1200px) {
-    text-align: left;
+    font-size: 4rem;
   }
 `;
 
@@ -75,7 +97,7 @@ export const PageTitleFeaturedSubtitle = styled.p`
     margin-bottom: 2.4rem;
   }
   @media (min-width: 1200px) {
-    text-align: left;
+    font-size: 2.4rem;
   }
 `;
 
@@ -96,7 +118,7 @@ export const PageTitleFeaturedDescriptionContainer = styled.span`
 export const PageTitleFeaturedDescription = styled.p`
   color: var(--light);
   font-size: 1.6rem;
-  line-height: 144%;
+  line-height: 156%;
 `;
 
 export const PageTitleFeaturedLink = styled(Link)`
@@ -106,6 +128,7 @@ export const PageTitleFeaturedLink = styled(Link)`
   display: flex;
   font-size: 1.8rem;
   height: 4.8rem;
+  padding: 0.5rem 0 0 0;
   justify-content: center;
   text-align: center;
   text-transform: uppercase;

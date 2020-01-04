@@ -302,7 +302,7 @@ const activeLink = css`
       padding: 0.8rem 2rem 0 2rem;
       ::after {
         background-color: var(--secondary);
-        bottom: -4px;
+        bottom: -5px;
         height: 3px;
         left: 20px;
         top: auto;

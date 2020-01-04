@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as C from './content';
 import * as S from './styled';
 
-function Navbar({ title }) {
+function Navbar({ title, match }) {
   const [state, setState] = useState({ active: false });
 
   function onTogglerActiveHandler() {
@@ -72,7 +73,7 @@ function Navbar({ title }) {
           {C.links.map(each => (
             <S.NavLink
               key={each.to}
-              className={`${each.label === title ? '--active' : ''} ${
+              className={`${each.to === match.path ? '--active' : ''} ${
                 each.featured ? '--featured' : ''
               }`}
               to={each.to}
@@ -86,7 +87,12 @@ function Navbar({ title }) {
   );
 }
 
-Navbar.propTypes = { title: PropTypes.string };
+Navbar.propTypes = {
+  title: PropTypes.string,
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }).isRequired,
+};
 Navbar.defaultProps = { title: 'Home' };
 
-export default Navbar;
+export default withRouter(Navbar);

@@ -5,6 +5,10 @@ import PropTypes from 'prop-types';
 import * as C from './content';
 import * as S from './styled';
 
+import Infos from './Social/Infos';
+import Nav from './Nav';
+import Social from './Social';
+
 function Navbar({ title, match }) {
   const [state, setState] = useState({ active: false });
 
@@ -34,54 +38,8 @@ function Navbar({ title, match }) {
         </picture>
       </S.NavBrandWrapper>
       <S.NavbarContent>
-        <S.NavbarSocial>
-          <S.NavbarSocialGroup className="--row">
-            {C.social.map(each => (
-              <S.NavbarSocialButton
-                key={each.url}
-                href={each.url}
-                target="_blank"
-                rel="noreferrer noopener"
-                title={each.label}
-                alt={each.label}
-              >
-                <S.NavbarSocialButtonIcon>
-                  <each.icon />
-                </S.NavbarSocialButtonIcon>
-              </S.NavbarSocialButton>
-            ))}
-          </S.NavbarSocialGroup>
-          <S.NavbarSocialGroup>
-            {C.infos.map(each => (
-              <S.NavbarSocialInfo
-                key={each.url}
-                href={each.url}
-                target="_blank"
-                className={each.featured ? '--featured' : ''}
-                rel="noreferrer noopener"
-                title={each.value}
-              >
-                <S.NavbarSocialInfoIcon>
-                  <each.icon />
-                </S.NavbarSocialInfoIcon>
-                {each.value}
-              </S.NavbarSocialInfo>
-            ))}
-          </S.NavbarSocialGroup>
-        </S.NavbarSocial>
-        <S.NavbarNav className="navbar-nav">
-          {C.links.map(each => (
-            <S.NavLink
-              key={each.to}
-              className={`${each.to === match.path ? '--active' : ''} ${
-                each.featured ? '--featured' : ''
-              }`}
-              to={each.to}
-            >
-              {each.label}
-            </S.NavLink>
-          ))}
-        </S.NavbarNav>
+        <Social infos={C.infos} social={C.social} />
+        <Nav links={C.links} path={match.path} />
       </S.NavbarContent>
     </S.Navbar>
   );

@@ -6,6 +6,8 @@ import { Media } from '../../utils';
 import * as C from './content';
 import * as S from './styled';
 
+import Featured from './Featured';
+
 function PageTitle({ featured, small, title }) {
   return (
     <S.PageTitleWrapper
@@ -15,28 +17,7 @@ function PageTitle({ featured, small, title }) {
       <S.PageTitleText className={!title ? '--hide' : ''}>
         {title}
       </S.PageTitleText>
-      {featured && featured.title ? (
-        <S.PageTitleFeaturedContainer>
-          <S.PageTitleFeaturedTitles>
-            <S.PageTitleFeaturedTitle>
-              {featured.title}
-            </S.PageTitleFeaturedTitle>
-            <S.PageTitleFeaturedSubtitle>
-              {featured.subtitle}
-            </S.PageTitleFeaturedSubtitle>
-          </S.PageTitleFeaturedTitles>
-          <S.PageTitleFeaturedDescriptionContainer>
-            {featured.description.map(p => (
-              <S.PageTitleFeaturedDescription key={p}>
-                {p}
-              </S.PageTitleFeaturedDescription>
-            ))}
-          </S.PageTitleFeaturedDescriptionContainer>
-          <S.PageTitleFeaturedLink to={featured.URL}>
-            {featured.label}
-          </S.PageTitleFeaturedLink>
-        </S.PageTitleFeaturedContainer>
-      ) : null}
+      {featured && featured.title ? <Featured {...featured} /> : null}
       {!small ? <S.PageTitleScrollIndicator /> : null}
     </S.PageTitleWrapper>
   );

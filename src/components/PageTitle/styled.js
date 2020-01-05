@@ -10,9 +10,10 @@ export const PageTitleWrapper = styled.section`
         ? `linear-gradient(to bottom, ${chroma(Colors.dark).alpha(
             0.56,
           )} 0%, ${chroma(Colors.dark)} 80%), url(${props.bg})`
-        : 'var(--dark)'},
-    center, fixed;
+        : 'var(--dark)'}
+    no-repeat center fixed;
   background-blend-mode: multiply;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   height: ${props => (props.small ? '54vh' : '100vh')};

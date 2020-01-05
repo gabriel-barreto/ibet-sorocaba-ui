@@ -29,7 +29,7 @@ PageTitle.defaultProps = {
 };
 
 PageTitle.propTypes = {
-  featured: PropTypes.oneOf([
+  featured: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
       title: PropTypes.string,

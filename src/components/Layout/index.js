@@ -22,7 +22,7 @@ Layout.defaultProps = { title: '', featured: false };
 
 Layout.propTypes = {
   title: PropTypes.string,
-  featured: PropTypes.oneOf([
+  featured: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
       title: PropTypes.string,

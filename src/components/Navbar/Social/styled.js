@@ -36,7 +36,7 @@ export const NavbarSocialGroup = styled.div`
     flex-direction: row;
     width: fit-content;
     > *:not(:last-child) {
-      margin: 0 0.8rem 0 0;
+      margin: 0 3.2rem 0 0;
     }
   }
 `;

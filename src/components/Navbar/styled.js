@@ -71,14 +71,14 @@ export const NavTogglerButton = styled.button`
 export const NavBrandWrapper = styled.div`
   align-items: center;
   display: flex;
-  height: 100%;
+  min-height: 100%;
   justify-content: center;
   padding: 0.8rem;
   width: fit-content;
 
   @media (min-width: 1200px) {
     background-color: var(--primary);
-    padding: 0.8rem 2rem;
+    padding: 2.4rem;
   }
 `;
 
@@ -150,38 +150,67 @@ const activeNavbar = css`
   }
 `;
 
-export const Navbar = styled.section`
-  align-items: center;
-  /* background-color: var(--darkest); */
-  /* box-shadow: 0 2px 4px ${chroma(Colors.darkest).alpha(0.32)}; */
-  display: flex;
-  height: 8rem;
-  left: 0;
-  padding: 0 3.2rem;
-  position: fixed;
-  top: 0;
-  transition: background-color 400ms;
-  width: 100%;
-  will-change: background-color;
-  z-index: 9;
-
-  @media (min-width: 1200px) {
-    align-items: flex-end;
+const dockedNavbar = css`
+  &.--docked {
     background-color: transparent;
-    box-shadow: none;
-    height: 16rem;
-    justify-content: space-between;
-    padding: 0rem 6.4rem;
-    ${NavBrandWrapper}, .navbar-nav {
-      box-shadow: 0 2px 4px ${chroma(Colors.primary).alpha(0.4)};
+    box-shadow: 0 3px 4px transparent;
+    padding: 0 3.2rem;
+    height: 8rem;
+
+    @media (min-width: 768px) {
+      padding: 0 var(--padding-vertical-md);
+    }
+    @media (min-width: 1200px) {
+      height: 16rem;
+      padding: 0 var(--padding-vertical-lg);
+      ${NavBrandWrapper}, .navbar-nav {
+        background-color: var(--darkest);
+        box-shadow: 0 2px 4px ${chroma(Colors.primary).alpha(0.4)};
+      }
+    }
+    @media (min-width: 1400px) {
+      padding: 0 var(--padding-vertical-xl);
     }
   }
-  @media (min-width: 1200px) {
-    padding: 0 calc((100vw - 1200px) / 2);
-  }
-  @media (min-width: 1400px) {
-    padding: 0 calc((100vw - 1400px) / 2);
+`;
+
+export const Navbar = styled.section`
+  align-items: center;
+  background-color: var(--darkest);
+  box-shadow: 0 3px 6px ${chroma(Colors.darkest).alpha(0.4)};
+  display: flex;
+  height: auto;
+  left: 0;
+  padding: 1.6rem 3.2rem;
+  position: fixed;
+  top: 0;
+  transition: background-color 400ms, box-shadow 400ms, height 400ms;
+  width: 100%;
+  will-change: background-color, box-shadow, height;
+  z-index: 9;
+
+  ${NavBrandWrapper}, .navbar-nav {
+    background-color: transparent;
+    transition: background-color 400ms, box-shadow 400ms;
+    will-change: background-color, box-shadow;
   }
 
-  ${activeNavbar}
+  --padding-vertical-md: 6.4rem;
+  --padding-vertical-lg: calc((100vw - 1200px) / 2);
+  --padding-vertical-xl: calc((100vw - 1400px) / 2);
+  @media (min-width: 1200px) {
+    align-items: center;
+    box-shadow: none;
+    justify-content: space-between;
+    padding: 1rem var(--padding-vertical-md);
+  }
+  @media (min-width: 1200px) {
+    padding: 1.6rem var(--padding-vertical-lg) 1rem var(--padding-vertical-lg);
+  }
+  @media (min-width: 1400px) {
+    padding: 1.6rem var(--padding-vertical-xl) 1rem var(--padding-vertical-xl);
+  }
+
+  ${dockedNavbar};
+  ${activeNavbar};
 `;

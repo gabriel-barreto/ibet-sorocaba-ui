@@ -1,23 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as C from './content';
 import * as S from './styled';
 
-import Infos from './Social/Infos';
 import Nav from './Nav';
 import Social from './Social';
 
 function Navbar({ title, match }) {
-  const [state, setState] = useState({ active: false });
+  const [state, setState] = useState({ active: false, docked: true });
 
   function onTogglerActiveHandler() {
     return setState(prev => ({ ...prev, active: !prev.active }));
   }
 
+  function onScrollHandler() {
+    console.log(window.scrollY);
+    if (window.scrollY < 8) {
+      setState(prev => ({ ...prev, docked: true }));
+    } else {
+      setState(prev => ({ ...prev, docked: false }));
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('scroll', onScrollHandler);
+    return () => {
+      document.removeEventListener('scroll', onScrollHandler);
+    };
+  }, []);
+
   return (
-    <S.Navbar className={`navbar ${state.active ? '--active' : ''}`}>
+    <S.Navbar
+      className={`navbar ${state.active ? '--active' : ''} ${
+        state.docked ? '--docked' : ''
+      }`}
+    >
       <S.NavTitle className="navbar-title">{title}</S.NavTitle>
       <S.NavTogglerButton type="button" onClick={onTogglerActiveHandler}>
         <S.NavTogglerIcon />

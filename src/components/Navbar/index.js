@@ -16,7 +16,6 @@ function Navbar({ title, match }) {
   }
 
   function onScrollHandler() {
-    console.log(window.scrollY);
     if (window.scrollY < 8) {
       setState(prev => ({ ...prev, docked: true }));
     } else {
@@ -25,6 +24,10 @@ function Navbar({ title, match }) {
   }
 
   useEffect(() => {
+    if (window.scrollY >= 8) {
+      setState(prev => ({ ...prev, docked: false }));
+    }
+
     document.addEventListener('scroll', onScrollHandler);
     return () => {
       document.removeEventListener('scroll', onScrollHandler);

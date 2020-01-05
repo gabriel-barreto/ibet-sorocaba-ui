@@ -23,8 +23,12 @@ export const AboutSectionWrapper = styled.section`
 export const AboutPhoto = styled.img`
   box-shadow: 0 2px 4px ${Chroma(Colors.darkest).alpha(0.32)};
   height: auto;
+  margin: 0 0 1rem 0;
   object-fit: contain;
   width: 100%;
+  @media (min-width: 1024px) {
+    margin: 0;
+  }
 `;
 
 export const AboutCoordinatorTitle = styled.p``;
@@ -81,8 +85,12 @@ export const AboutContentButton = styled(Link)`
   padding: 0.8rem 4.8rem;
   text-transform: uppercase;
   transition: background-color 400ms, box-shadow 400ms, color 400ms;
-  width: fit-content;
+  width: 100%;
   will-change: background-color, box-shadow, color;
+
+  @media (min-width: 1024px) {
+    width: fit-content;
+  }
 
   :hover,
   :focus {

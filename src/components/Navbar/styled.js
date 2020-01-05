@@ -98,17 +98,26 @@ export const NavbarContent = styled.div`
   background-color: var(--darkest);
   display: flex;
   flex-direction: column-reverse;
-  height: calc(100% - 8rem);
+  height: 100%;
   justify-content: center;
   left: 0;
   padding: 0 3.2rem;
   position: fixed;
-  top: 80px;
+  top: 0;
   transform: translateX(-1366px);
   transition: transform 400ms;
   width: 100%;
+  z-index: -1;
   will-change: transform;
-
+  @media (max-width: 320px) {
+    height: auto;
+    min-height: 100%;
+    overflow-y: scroll;
+    padding-top: 6.4rem;
+  }
+  @media (min-width: 768px) {
+    padding: 0 6.4rem;
+  }
   @media (min-width: 1200px) {
     align-items: flex-end;
     background-color: transparent;
@@ -158,18 +167,18 @@ const dockedNavbar = css`
     height: 8rem;
 
     @media (min-width: 768px) {
-      padding: 0 var(--padding-vertical-md);
+      padding: 0 var(--padding-horizontal-md);
     }
     @media (min-width: 1200px) {
       height: 16rem;
-      padding: 0 var(--padding-vertical-lg);
+      padding: 0 var(--padding-horizontal-lg);
       ${NavBrandWrapper}, .navbar-nav {
         background-color: var(--darkest);
         box-shadow: 0 2px 4px ${chroma(Colors.primary).alpha(0.4)};
       }
     }
     @media (min-width: 1400px) {
-      padding: 0 var(--padding-vertical-xl);
+      padding: 0 var(--padding-horizontal-xl);
     }
   }
 `;
@@ -195,20 +204,22 @@ export const Navbar = styled.section`
     will-change: background-color, box-shadow;
   }
 
-  --padding-vertical-md: 6.4rem;
-  --padding-vertical-lg: calc((100vw - 1200px) / 2);
-  --padding-vertical-xl: calc((100vw - 1400px) / 2);
+  --padding-horizontal-md: 6.4rem;
+  --padding-horizontal-lg: calc((100vw - 1200px) / 2);
+  --padding-horizontal-xl: calc((100vw - 1400px) / 2);
+  @media (min-width: 768px) {
+    padding: 1rem var(--padding-horizontal-md);
+  }
   @media (min-width: 1200px) {
     align-items: center;
     box-shadow: none;
     justify-content: space-between;
-    padding: 1rem var(--padding-vertical-md);
-  }
-  @media (min-width: 1200px) {
-    padding: 1.6rem var(--padding-vertical-lg) 1rem var(--padding-vertical-lg);
+    padding: 1.6rem var(--padding-horizontal-lg) 1rem
+      var(--padding-horizontal-lg);
   }
   @media (min-width: 1400px) {
-    padding: 1.6rem var(--padding-vertical-xl) 1rem var(--padding-vertical-xl);
+    padding: 1.6rem var(--padding-horizontal-xl) 1rem
+      var(--padding-horizontal-xl);
   }
 
   ${dockedNavbar};

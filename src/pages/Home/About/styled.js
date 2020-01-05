@@ -7,8 +7,12 @@ import { Colors, Container } from '../../../styles';
 export const AboutSectionWrapper = styled.section`
   ${Container};
 
-  padding-top: 3.2rem;
+  padding-top: 1.6rem;
   padding-bottom: 3.2rem;
+  @media (min-width: 768px) {
+    padding-top: 0.8rem;
+    padding-bottom: 2.4rem;
+  }
   @media (min-width: 1024px) {
     align-items: center;
     column-gap: 2.4rem;
@@ -26,6 +30,9 @@ export const AboutPhoto = styled.img`
   margin: 0 0 1rem 0;
   object-fit: contain;
   width: 100%;
+  @media (max-width: 1023px) {
+    display: none;
+  }
   @media (min-width: 1024px) {
     margin: 0;
   }
@@ -54,6 +61,10 @@ export const AboutCoordinatorWrapper = styled.span`
 
   > ${AboutCoordinatorName}, ${AboutCoordinatorPosition} {
     font-weight: 600;
+  }
+
+  @media (max-width: 1399px) {
+    display: none;
   }
 `;
 

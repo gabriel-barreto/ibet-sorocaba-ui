@@ -3,22 +3,14 @@ import PropTypes from 'prop-types';
 
 import * as S from './styled';
 
+import Coordinator from './Coordinator';
+
 function AboutSection({ coordinator, content }) {
   return (
     <S.AboutSectionWrapper id="about">
-      <S.AboutPhoto
-        src={coordinator.photo}
-        alt={coordinator.name}
-        title={coordinator.name}
-      />
+      <Coordinator {...coordinator} />
       <S.AboutContentWrapper>
-        <S.AboutCoordinatorWrapper>
-          <S.AboutCoordinatorName>{coordinator.name}</S.AboutCoordinatorName>
-          <S.AboutCoordinatorTitle>{coordinator.title}</S.AboutCoordinatorTitle>
-          <S.AboutCoordinatorPosition>
-            {coordinator.position}
-          </S.AboutCoordinatorPosition>
-        </S.AboutCoordinatorWrapper>
+        <Coordinator {...coordinator} noPhoto />
         {content.map((each, i) => (
           <S.AboutContentParagraph key={i}>{each}</S.AboutContentParagraph>
         ))}

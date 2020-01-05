@@ -20,7 +20,6 @@ export const NavbarSocialInfo = styled.a`
   color: var(--light);
   font-size: 1.6rem;
   justify-content: center;
-  margin: 0 0 1rem 0;
   transition: color 400ms;
   will-change: color;
 
@@ -51,11 +50,14 @@ export const NavbarSocialInfo = styled.a`
         margin: 0 2.4rem 0 0;
       }
     }
+
+    :hover {
+      background-color: var(--secondary-dark);
+    }
   }
 
   :hover,
   :focus {
-    background-color: var(--secondary-dark);
     color: var(--lightest);
     > ${NavbarSocialInfoIcon} {
       color: var(--lightest);

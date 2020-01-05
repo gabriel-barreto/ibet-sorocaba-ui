@@ -24,11 +24,13 @@ function SocialButtons({ entries }) {
   );
 }
 
-export const Type = PropTypes.arrayOf({
-  icon: PropTypes.node.isRequired,
-  label: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-});
+export const Type = PropTypes.arrayOf(
+  PropTypes.shape({
+    icon: PropTypes.any.isRequired,
+    label: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }),
+);
 
 SocialButtons.propTypes = { entries: Type.isRequired };
 

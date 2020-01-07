@@ -1,5 +1,8 @@
+import chroma from 'chroma-js';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
+import { Colors } from '../../styles';
 
 export const IntroCardIcon = styled.span`
   --size: 6.4rem;
@@ -30,7 +33,6 @@ export const IntroCardAction = styled.p`
   color: var(--secondary);
   font-size: 1.6rem;
   line-height: 144%;
-  text-transform: uppercase;
 `;
 
 export const IntroCardContent = styled.section`
@@ -49,11 +51,10 @@ export const IntroCardContent = styled.section`
 
 export const IntroCardOverlay = styled.div`
   background: linear-gradient(to bottom, var(--dark), var(--darkest));
-  background-blend-mode: multiply;
   height: 100%;
   left: 0;
   mix-blend-mode: multiply;
-  opacity: 0.56;
+  opacity: 0.8;
   position: absolute;
   transition: opacity 400ms;
   top: 0;
@@ -67,6 +68,8 @@ export const IntroCardContainer = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px ${chroma(Colors.darkest).alpha(0.32)};
   height: 100%;
   position: relative;
   width: 100%;
@@ -81,6 +84,7 @@ export const IntroCardLink = styled(Link)`
 
   ${IntroCardTitle}, ${IntroCardAction} {
     font-weight: 600;
+    text-transform: uppercase;
     transition: color 400ms;
     will-change: color;
   }

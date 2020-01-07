@@ -2,6 +2,7 @@ import { css } from 'styled-components';
 
 export default css`
   padding: 0 3.2rem;
+  width: 100%;
   @media (min-width: 768px) {
     padding: 0 6.4rem;
   }

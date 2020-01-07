@@ -46,15 +46,12 @@ export const PageTitleFeaturedTitle = styled.h2`
 
 export const PageTitleFeaturedSubtitle = styled.p`
   color: var(--lightest);
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   line-height: 144%;
   text-align: center;
   @media (max-width: 1200px) {
     margin-bottom: 2.4rem;
-  }
-  @media (min-width: 1200px) {
-    font-size: 2.4rem;
   }
 `;
 

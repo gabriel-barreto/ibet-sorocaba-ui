@@ -40,13 +40,16 @@ export const IntroCardContent = styled.section`
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: flex-end;
+  justify-content: center;
   left: 0;
   padding: 3.2rem;
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 2;
+  @media (min-width: 1024px) {
+    justify-content: flex-end;
+  }
 `;
 
 export const IntroCardOverlay = styled.div`
@@ -76,7 +79,16 @@ export const IntroCardContainer = styled.div`
 `;
 
 export const IntroCardLink = styled(Link)`
+  height: 40rem;
   cursor: pointer;
+  width: 100%;
+
+  @media (min-width: 1024px) {
+    height: 44rem;
+  }
+  @media (min-width: 1200px) {
+    height: 40rem;
+  }
 
   ${IntroCardTitle}, ${IntroCardDescription} {
     color: var(--lightest);

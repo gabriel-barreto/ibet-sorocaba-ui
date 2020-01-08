@@ -45,11 +45,6 @@ export const SliderControlDot = styled.button`
   width: 2.4rem;
   will-change: background-color, opacity, width;
 
-  @media (min-width: 768px) {
-    height: 3rem;
-    width: 3rem;
-  }
-
   :hover,
   :focus {
     background-color: var(--lightest);
@@ -62,7 +57,7 @@ export const SliderControlDot = styled.button`
     opacity: 1;
     width: 3.2rem;
     @media (min-width: 768px) {
-      width: 5.6rem;
+      width: 4.8rem;
     }
   }
 `;
@@ -101,17 +96,29 @@ export const SliderControlButton = styled.button`
 export const SlideItem = styled.img`
   border-radius: 2px;
   box-shadow: 0 2px 4px ${chroma(Colors.darkest).alpha(0.32)};
+  display: none;
   height: auto;
   max-height: 40rem;
   object-fit: none;
+  transition: display 400ms;
   width: 100%;
+  will-change: display;
+
+  &.--visible {
+    display: initial;
+  }
 `;
 
 export const Slide = styled.div`
+  align-items: center;
   column-gap: 1.6rem;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }

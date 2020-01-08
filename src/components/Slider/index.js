@@ -17,14 +17,14 @@ function Slider({ slides }) {
       ...prev,
       itemsPerPage,
       page: { active: 1, total: totalPages },
-      activeSlides: [...slides.slice(0, itemsPerPage)],
+      activeSlides: [...slides.slice(0, itemsPerPage).map(each => each.key)],
     }));
   }, []);
 
   function changeSlide(newPage) {
     const end = newPage * state.itemsPerPage;
     const begin = end - state.itemsPerPage;
-    const activeSlides = [...slides.slice(begin, end)];
+    const activeSlides = [...slides.slice(begin, end).map(each => each.key)];
 
     return setState(prev => ({
       ...prev,
@@ -50,9 +50,12 @@ function Slider({ slides }) {
   return (
     <S.SliderWrapper>
       <S.Slide>
-        {state.activeSlides.length > 0
-          ? state.activeSlides.map(each => (
+        {slides.length > 0
+          ? slides.map(each => (
               <S.SlideItem
+                className={
+                  state.activeSlides.includes(each.key) ? '--visible' : ''
+                }
                 key={each.key}
                 src={each.url}
                 alt={each.label}

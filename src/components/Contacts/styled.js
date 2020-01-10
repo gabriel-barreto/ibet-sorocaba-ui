@@ -72,6 +72,10 @@ export const ContactSectionButton = styled(Link)`
     min-width: 40rem;
     width: fit-content;
   }
+
+  :hover {
+    background-color: var(--secondary-dark);
+  }
 `;
 
 export const ContactHoursInfo = styled.p`

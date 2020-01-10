@@ -140,6 +140,15 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  svg:not([data-custom='my']) {
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    vertical-align: text-top;
+    justify-self: center;
+    justify-content: center;
+  }
+
   *::before,
   *,
   *::after {

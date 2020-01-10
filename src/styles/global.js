@@ -144,9 +144,11 @@ export default createGlobalStyle`
     align-content: center;
     align-items: center;
     align-self: center;
-    vertical-align: text-top;
-    justify-self: center;
+    display: block;
     justify-content: center;
+    justify-self: center;
+    margin: auto;
+    vertical-align: text-top;
   }
 
   *::before,

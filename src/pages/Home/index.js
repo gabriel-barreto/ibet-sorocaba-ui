@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Contact, Layout, ListIntroCards, Structure } from '../../components';
+import { Footer, Layout, ListIntroCards, Structure } from '../../components';
 
 import AboutSection from './About';
 import WelcomeSection from './Welcome';
@@ -35,7 +35,7 @@ function HomePage() {
       <AboutSection coordinator={coordinator} content={aboutContent} />
       <ListIntroCards />
       <Structure />
-      <Contact />
+      <Footer />
     </Layout>
   );
 }

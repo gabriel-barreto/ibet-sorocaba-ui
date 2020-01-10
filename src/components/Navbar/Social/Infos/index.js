@@ -16,7 +16,7 @@ function Infos({ entries }) {
           title={each.value}
         >
           <S.NavbarSocialInfoIcon>
-            <each.icon />
+            <each.icon size={18} preserveAspectRatio="xMidYMid meet" />
           </S.NavbarSocialInfoIcon>
           {each.value}
         </S.NavbarSocialInfo>

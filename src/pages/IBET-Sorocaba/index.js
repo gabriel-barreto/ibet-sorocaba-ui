@@ -2,12 +2,14 @@ import React from 'react';
 
 import { Layout } from '../../components';
 
-function IBETSorocabaPage () {
-    return (
-        <Layout title="IBET Sorocaba" featured={false}>
-            IBET Sorocaba Page
-        </Layout>
-    );
+import AboutSection from './About';
+
+function IBETSorocabaPage() {
+  return (
+    <Layout title="IBET Sorocaba" featured={false}>
+      <AboutSection />
+    </Layout>
+  );
 }
 
 export default IBETSorocabaPage;

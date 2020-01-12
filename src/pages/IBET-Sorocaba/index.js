@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout } from '../../components';
+import { Footer, Layout, ListIntroCards, Structure } from '../../components';
 
 import AboutSection from './About';
 import CoordinationSection from './Coordination';
@@ -10,6 +10,9 @@ function IBETSorocabaPage() {
     <Layout title="IBET Sorocaba" featured={false}>
       <AboutSection />
       <CoordinationSection />
+      <ListIntroCards />
+      <Structure />
+      <Footer />
     </Layout>
   );
 }

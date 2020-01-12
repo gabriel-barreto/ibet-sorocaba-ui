@@ -8,13 +8,10 @@ import * as S from './styled';
 
 import Featured from './Featured';
 
-function PageTitle({ featured, small, title }) {
+function PageTitle({ featured, small, title, name }) {
   return (
-    <S.PageTitleWrapper
-      small={small}
-      bg={C.bg[title ? title.toLowerCase() : 'home'][Media.getScreenSize()]}
-    >
-      <S.PageTitleText className={!title ? '--hide' : ''}>
+    <S.PageTitleWrapper small={small} bg={C.bg[name][Media.getScreenSize()]}>
+      <S.PageTitleText className={!title || name === 'home' ? '--hide' : ''}>
         {title}
       </S.PageTitleText>
       {featured && featured.title ? <Featured {...featured} /> : null}
@@ -38,6 +35,7 @@ PageTitle.propTypes = {
       url: PropTypes.string,
     }),
   ]),
+  name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   small: PropTypes.bool,
 };

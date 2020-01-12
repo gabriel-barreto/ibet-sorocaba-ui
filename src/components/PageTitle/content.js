@@ -10,20 +10,29 @@ import ibetBrasilSm from '../../assets/ibet-brasil-bg-sm.jpg';
 import ibetBrasilMd from '../../assets/ibet-brasil-bg-md.jpg';
 import ibetBrasilXl from '../../assets/ibet-brasil-bg-xl.jpg';
 
+import specializationSm from '../../assets/specialization-bg-sm.jpg';
+import specializationMd from '../../assets/specialization-bg-md.jpg';
+import specializationXl from '../../assets/specialization-bg-xl.jpg';
+
 export const bg = {
   home: {
     sm: homeSm,
     md: homeMd,
     xl: homeXl,
   },
-  'ibet sorocaba': {
+  'ibet-sorocaba': {
     sm: ibetSorocabaSm,
     md: ibetSorocabaMd,
     xl: ibetSorocabaXl,
   },
-  'ibet brasil': {
+  'ibet-brasil': {
     sm: ibetBrasilSm,
     md: ibetBrasilMd,
     xl: ibetBrasilXl,
+  },
+  especializacao: {
+    sm: specializationSm,
+    md: specializationMd,
+    xl: specializationXl,
   },
 };

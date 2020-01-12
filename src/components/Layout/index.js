@@ -1,18 +1,26 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 import PageTitle from '../PageTitle';
 import SEO from '../SEO';
 
-function Layout({ children, featured, title }) {
+import Routes from '../../routes';
+
+function Layout({ children, featured, title, match }) {
+  const activeRoute = Routes.find(each => each.path === match.path);
   return (
     <>
       <SEO title={title} />
       <header id="app-header">
         <Navbar title={title} />
-        <PageTitle title={title} featured={featured} />
+        <PageTitle
+          name={activeRoute.name}
+          title={activeRoute.title}
+          featured={featured}
+        />
       </header>
       <main id="app-main">{children}</main>
       <Footer />
@@ -23,7 +31,7 @@ function Layout({ children, featured, title }) {
 Layout.defaultProps = { title: '', featured: false };
 
 Layout.propTypes = {
-  title: PropTypes.string,
+  children: PropTypes.node.isRequired,
   featured: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
@@ -33,7 +41,8 @@ Layout.propTypes = {
       url: PropTypes.string,
     }),
   ]),
-  children: PropTypes.node.isRequired,
+  match: PropTypes.shape({ path: PropTypes.string.isRequired }).isRequired,
+  title: PropTypes.string,
 };
 
-export default Layout;
+export default withRouter(Layout);

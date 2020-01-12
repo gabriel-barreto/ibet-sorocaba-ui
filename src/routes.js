@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IBETSorocaba, Home } from './pages';
+import { IBETBrasil, IBETSorocaba, Home } from './pages';
 
 export default [
   {
@@ -13,6 +13,10 @@ export default [
     name: 'ibet-sorocaba',
     path: '/ibet-sorocaba',
     component: props => <IBETSorocaba {...props} />,
-    exact: true,
+  },
+  {
+    name: 'ibet-brasil',
+    path: '/ibet-brasil',
+    component: props => <IBETBrasil {...props} />,
   },
 ];

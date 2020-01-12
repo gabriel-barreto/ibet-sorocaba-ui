@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Footer from '../Footer';
 import Navbar from '../Navbar';
 import PageTitle from '../PageTitle';
 import SEO from '../SEO';
@@ -14,6 +15,7 @@ function Layout({ children, featured, title }) {
         <PageTitle title={title} featured={featured} />
       </header>
       <main id="app-main">{children}</main>
+      <Footer />
     </>
   );
 }

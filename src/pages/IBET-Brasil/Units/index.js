@@ -21,6 +21,8 @@ function UnitsSection({ units }) {
 }
 
 UnitsSection.defaultProps = { units: C.units };
-UnitsSection.propTypes = { units: PropTypes.arrayOf(UnitType) };
+UnitsSection.propTypes = {
+  units: PropTypes.arrayOf(PropTypes.shape(UnitType)),
+};
 
 export default UnitsSection;

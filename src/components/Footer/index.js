@@ -29,6 +29,7 @@ function Footer() {
           {C.sitemap.map(each =>
             each.external ? (
               <S.FooterSitemapExternalItem
+                key={each.to}
                 href={each.to}
                 target="blank"
                 rel="noreferrer noopener"
@@ -36,7 +37,7 @@ function Footer() {
                 {each.label}
               </S.FooterSitemapExternalItem>
             ) : (
-              <S.FooterSitemapItem to={each.to}>
+              <S.FooterSitemapItem to={each.to} key={each.to}>
                 {each.label}
               </S.FooterSitemapItem>
             ),

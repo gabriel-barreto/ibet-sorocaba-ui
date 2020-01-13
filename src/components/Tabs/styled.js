@@ -22,18 +22,26 @@ export const TabsTab = styled.button`
   align-items: center;
   background-color: transparent;
   border: none;
-  color: var(--secondary);
+  color: var(--dark);
   display: flex;
   font-size: 1.6rem;
   justify-content: center;
   outline-color: transparent;
+  transition: color 400ms;
   padding: 0.8rem 1rem;
+  white-space: nowrap;
+  will-change: color;
+
+  :hover {
+    color: var(--darkest);
+  }
 
   :first-of-type {
     padding-left: 0;
   }
 
   &.--active {
+    color: var(--secondary);
     font-weight: 600;
     position: relative;
     &::after {

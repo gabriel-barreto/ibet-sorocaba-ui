@@ -18,6 +18,10 @@ import mastersSm from '../../assets/masters-bg-sm.jpg';
 import mastersMd from '../../assets/masters-bg-md.jpg';
 import mastersXl from '../../assets/masters-bg-xl.jpg';
 
+import membersSm from '../../assets/members-bg-sm.jpg';
+import membersMd from '../../assets/members-bg-md.jpg';
+import membersXl from '../../assets/members-bg-xl.jpg';
+
 export const bg = {
   home: {
     sm: homeSm,
@@ -43,5 +47,10 @@ export const bg = {
     sm: mastersSm,
     md: mastersMd,
     xl: mastersXl,
+  },
+  members: {
+    sm: membersSm,
+    md: membersMd,
+    xl: membersXl,
   },
 };

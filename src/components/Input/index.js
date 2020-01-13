@@ -26,17 +26,17 @@ function Input({ helper, label, mask, name, onInput, type, ...props }) {
         type={type}
         name={name}
         value={value}
-        onInput={onInputHandler}
+        onChange={onInputHandler}
       />
     </S.InputGroup>
   );
 }
 
-Input.defaultProps = { helper: '', label: '', mask: '', type: 'text' };
+Input.defaultProps = { helper: '', label: '', mask: false, type: 'text' };
 Input.propTypes = {
   helper: PropTypes.string,
   label: PropTypes.string,
-  mask: PropTypes.func,
+  mask: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   onInput: PropTypes.func.isRequired,

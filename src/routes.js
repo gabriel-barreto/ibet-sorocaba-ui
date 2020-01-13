@@ -1,6 +1,12 @@
 import React from 'react';
 
-import { IBETBrasil, IBETSorocaba, Home, Specialization } from './pages';
+import {
+  IBETBrasil,
+  IBETSorocaba,
+  Home,
+  Masters,
+  Specialization,
+} from './pages';
 
 export default [
   {
@@ -27,5 +33,11 @@ export default [
     name: 'especializacao',
     path: '/especializacao',
     component: props => <Specialization {...props} />,
+  },
+  {
+    title: 'Mestrado',
+    name: 'mestrado',
+    path: '/mestrado',
+    component: props => <Masters {...props} />,
   },
 ];

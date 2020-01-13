@@ -5,6 +5,7 @@ import {
   IBETSorocaba,
   Home,
   Masters,
+  Members,
   Specialization,
 } from './pages';
 
@@ -39,5 +40,11 @@ export default [
     name: 'mestrado',
     path: '/mestrado',
     component: props => <Masters {...props} />,
+  },
+  {
+    title: 'Membros',
+    name: 'members',
+    path: '/membros',
+    component: props => <Members {...props} />,
   },
 ];

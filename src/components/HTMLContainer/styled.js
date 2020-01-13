@@ -15,6 +15,40 @@ const b = css`
   font-weight: 600;
 `;
 
+const titles = css`
+  h2,
+  h3 {
+    color: var(--secondary);
+    font-weight: 600;
+    line-height: 152%;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+    margin: 4.8rem 0 1.6rem 0;
+    @media (min-width: 1024px) {
+      font-size: 3.2rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    margin: 4.8rem 0 2.4rem 0;
+    :first-of-type {
+      margin: 1.6rem 0 2.4rem 0;
+    }
+    @media (min-width: 1024px) {
+      font-size: 2.4rem;
+    }
+  }
+`;
+
+const list = css`
+  li {
+    ${p};
+  }
+`;
+
 export const Wrapper = styled.section`
   p {
     ${p};
@@ -24,4 +58,7 @@ export const Wrapper = styled.section`
   .strong {
     ${b};
   }
+
+  ${list};
+  ${titles};
 `;

@@ -14,6 +14,10 @@ import specializationSm from '../../assets/specialization-bg-sm.jpg';
 import specializationMd from '../../assets/specialization-bg-md.jpg';
 import specializationXl from '../../assets/specialization-bg-xl.jpg';
 
+import mastersSm from '../../assets/masters-bg-sm.jpg';
+import mastersMd from '../../assets/masters-bg-md.jpg';
+import mastersXl from '../../assets/masters-bg-xl.jpg';
+
 export const bg = {
   home: {
     sm: homeSm,
@@ -34,5 +38,10 @@ export const bg = {
     sm: specializationSm,
     md: specializationMd,
     xl: specializationXl,
+  },
+  mestrado: {
+    sm: mastersSm,
+    md: mastersMd,
+    xl: mastersXl,
   },
 };

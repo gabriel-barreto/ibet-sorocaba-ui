@@ -53,4 +53,9 @@ export const bg = {
     md: membersMd,
     xl: membersXl,
   },
+  contact: {
+    sm: membersSm,
+    md: membersMd,
+    xl: membersXl,
+  },
 };

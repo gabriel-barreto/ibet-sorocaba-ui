@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {
+  Contact,
   IBETBrasil,
   IBETSorocaba,
   Home,
@@ -46,5 +47,11 @@ export default [
     name: 'members',
     path: '/membros',
     component: props => <Members {...props} />,
+  },
+  {
+    title: 'Contato',
+    name: 'contact',
+    path: '/contato',
+    component: props => <Contact {...props} />,
   },
 ];

@@ -6,9 +6,9 @@ import * as C from './content';
 import * as S from './styled';
 
 import Nav from './Nav';
-import Social from './Social';
+import Social, { Type as SocialPropTypes } from './Social';
 
-function Navbar({ title, match }) {
+function Navbar({ infos, match, social, title }) {
   const [state, setState] = useState({ active: false, docked: true });
 
   function onTogglerActiveHandler() {
@@ -60,7 +60,7 @@ function Navbar({ title, match }) {
         </picture>
       </S.NavBrandWrapper>
       <S.NavbarContent>
-        <Social infos={C.infos} social={C.social} />
+        <Social infos={infos} social={social} />
         <Nav links={C.links} path={match.path} />
       </S.NavbarContent>
     </S.Navbar>
@@ -68,6 +68,7 @@ function Navbar({ title, match }) {
 }
 
 Navbar.propTypes = {
+  ...SocialPropTypes,
   title: PropTypes.string,
   match: PropTypes.shape({
     path: PropTypes.string.isRequired,

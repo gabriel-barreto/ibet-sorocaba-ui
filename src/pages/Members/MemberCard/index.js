@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { LinkAlt as LinkIcon } from 'styled-icons/boxicons-regular/LinkAlt';
+
 import * as S from './styled';
 
 import type from './type';
@@ -20,7 +22,7 @@ function MemberCard({ name, title, photo, social }) {
             target="blank"
             rel="noreferrer noopener"
           >
-            <each.icon size={24} />
+            {each.icon ? <each.icon size={24} /> : <LinkIcon size={24} />}
           </S.MemberSocialLink>
         ))}
       </S.MemberSocial>

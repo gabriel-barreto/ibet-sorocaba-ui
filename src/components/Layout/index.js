@@ -7,6 +7,7 @@ import Navbar from '../Navbar';
 import PageTitle from '../PageTitle';
 import SEO from '../SEO';
 
+import * as C from './content';
 import Routes from '../../routes';
 
 function Layout({ children, featured, title, match }) {
@@ -15,7 +16,7 @@ function Layout({ children, featured, title, match }) {
     <>
       <SEO title={title} />
       <header id="app-header">
-        <Navbar title={title} />
+        <Navbar title={title} social={C.social} infos={C.infos} />
         <PageTitle
           name={activeRoute.name}
           title={activeRoute.title}
@@ -23,7 +24,7 @@ function Layout({ children, featured, title, match }) {
         />
       </header>
       <main id="app-main">{children}</main>
-      <Footer />
+      <Footer social={C.social} infos={C.infos} />
     </>
   );
 }

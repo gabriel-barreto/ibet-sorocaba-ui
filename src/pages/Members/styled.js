@@ -45,6 +45,7 @@ export const MembersSectionGroup = styled.div`
     }
   }
   @media (min-width: 768px) {
+    align-items: flex-start;
     column-gap: 1.6rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);

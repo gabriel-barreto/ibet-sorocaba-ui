@@ -18,9 +18,10 @@ function Social({ infos, social }) {
   );
 }
 
-Social.propTypes = {
+export const Type = {
   social: SocialButtonsType.isRequired,
   infos: InfosType.isRequired,
 };
+Social.propTypes = Type;
 
 export default Social;

@@ -23,10 +23,6 @@ export const NavbarSocialInfo = styled.a`
   transition: color 400ms;
   will-change: color;
 
-  :last-of-type {
-    margin: 0 0 2.4rem 0;
-  }
-
   &.--featured {
     align-items: center;
     background-color: var(--secondary);

@@ -8,7 +8,7 @@ import Infos from '../Navbar/Social/Infos';
 import * as C from './content';
 import * as S from './styled';
 
-function Footer() {
+function Footer({ infos, social }) {
   return (
     <>
       <ContactSection />
@@ -20,7 +20,7 @@ function Footer() {
         />
         <S.FooterInfos>
           <S.FooterContactInfo>
-            <Infos entries={C.infos} />
+            <Infos entries={infos} />
           </S.FooterContactInfo>
           <S.FooterAddressInfo className="--featured">{`${C.location.address}, ${C.location.number} - ${C.location.complement}`}</S.FooterAddressInfo>
           <S.FooterAddressInfo>{`${C.location.city} - ${C.location.estate} - ${C.location.country}`}</S.FooterAddressInfo>
@@ -45,7 +45,7 @@ function Footer() {
         </S.FooterSitemap>
         <S.FooterSignature>
           <S.FooterSocial>
-            <SocialButtons entries={C.social} />
+            <SocialButtons entries={social} />
           </S.FooterSocial>
           <S.FooterSignatureMEC
             src={C.images.mec}
@@ -63,5 +63,23 @@ function Footer() {
     </>
   );
 }
+
+Footer.propTypes = {
+  infos: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: '',
+      icon: '',
+      value: '',
+      url: '',
+    }),
+  ).isRequired,
+  social: PropTypes.arrayOf(
+    PropTypes.shape({
+      icon: PropTypes.func.isRequired,
+      label: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
 
 export default Footer;

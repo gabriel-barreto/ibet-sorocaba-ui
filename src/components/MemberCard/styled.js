@@ -1,7 +1,7 @@
 import chroma from 'chroma-js';
 import styled from 'styled-components';
 
-import { Colors } from '../../../styles';
+import { Colors } from '../../styles';
 
 export const MemberCard = styled.div`
   align-items: center;

@@ -7,7 +7,7 @@ import CoordinationSection from './Coordination';
 
 function IBETSorocabaPage() {
   return (
-    <Layout title="IBET Sorocaba" featured={false}>
+    <Layout title="Sobre nós" featured={false}>
       <AboutSection />
       <CoordinationSection />
       <ListIntroCards />

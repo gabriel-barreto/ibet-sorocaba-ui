@@ -2,14 +2,14 @@ import React from 'react';
 
 import { Layout } from '../../components';
 
-import MemberCard from './MemberCard';
+import MemberCard from '../../components/MemberCard';
 
 import * as C from './content';
 import * as S from './styled';
 
 function MembersPage() {
   return (
-    <Layout>
+    <Layout title="Membros">
       <S.MembersSection>
         <S.MembersSectionTitle>Coordenadores</S.MembersSectionTitle>
         <S.MembersSectionGroup>

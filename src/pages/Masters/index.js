@@ -7,7 +7,7 @@ import * as S from './styled';
 
 function MastersPage() {
   return (
-    <Layout>
+    <Layout title="Mestrado">
       <S.MastersSection>
         <S.MastersSectionTitle>{C.title}</S.MastersSectionTitle>
         <HTMLContainer content={C.content} />

@@ -30,7 +30,7 @@ const coordinator = {
 
 function HomePage() {
   return (
-    <Layout featured={featured}>
+    <Layout title="Home" featured={featured}>
       <WelcomeSection />
       <AboutSection coordinator={coordinator} content={aboutContent} />
       <ListIntroCards />

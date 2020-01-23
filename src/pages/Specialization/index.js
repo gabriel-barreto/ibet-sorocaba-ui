@@ -9,7 +9,7 @@ import * as S from './styled';
 
 function SpecializationPage() {
   return (
-    <Layout>
+    <Layout title="Especialização em Direito Tributário do Brasil">
       <S.SpecializationSectionWrapper>
         <div>
           <S.SpecializationTitle>{C.title}</S.SpecializationTitle>

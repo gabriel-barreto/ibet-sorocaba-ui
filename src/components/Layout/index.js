@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
 import Footer from '../Footer';
@@ -11,7 +11,15 @@ import * as C from './content';
 import Routes from '../../routes';
 
 function Layout({ children, featured, title, match }) {
+  const [actualPath, setActualPath] = useState('');
   const activeRoute = Routes.find(each => each.path === match.path);
+
+  useEffect(() => {
+    if (match.path !== actualPath) {
+      window.scrollTo({ left: 0, top: 0 });
+    }
+    setActualPath(match.path);
+  }, [match]);
   return (
     <>
       <SEO title={title} />

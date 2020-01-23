@@ -9,13 +9,29 @@ import * as S from './styled';
 import Featured from './Featured';
 
 function PageTitle({ featured, small, title, name }) {
+  function scrollDown() {
+    const target = document.querySelector('main');
+    const navbar = document.querySelector('.navbar');
+
+    const [{ top }] = target.getClientRects();
+    const [{ height: navbarHeight }] = navbar.getClientRects();
+
+    return window.scrollTo({
+      behavior: 'smooth',
+      left: 0,
+      top: top - navbarHeight + window.scrollY,
+    });
+  }
+
   return (
     <S.PageTitleWrapper small={small} bg={C.bg[name][Media.getScreenSize()]}>
       <S.PageTitleText className={!title || name === 'home' ? '--hide' : ''}>
         {title}
       </S.PageTitleText>
       {featured && featured.title ? <Featured {...featured} /> : null}
-      {!small && !featured ? <S.PageTitleScrollIndicator /> : null}
+      {!small && !featured ? (
+        <S.PageTitleScrollIndicator onClick={scrollDown} />
+      ) : null}
     </S.PageTitleWrapper>
   );
 }

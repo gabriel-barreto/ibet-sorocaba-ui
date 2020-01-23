@@ -41,6 +41,10 @@ const titles = css`
       font-size: 2.4rem;
     }
   }
+
+  > *:first-child {
+    margin-top: 0;
+  }
 `;
 
 const list = css`

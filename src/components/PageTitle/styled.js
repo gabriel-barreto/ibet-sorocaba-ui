@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 
 import { Colors } from '../../styles';
 
+import scrollIndicator from '../../assets/scroll-indicator.svg';
+
 export const PageTitleWrapper = styled.section`
   align-items: center;
   background: ${props =>
@@ -46,12 +48,29 @@ export const PageTitleText = styled.h1`
 `;
 
 export const PageTitleScrollIndicator = styled.button`
+  @keyframes bounce {
+    0% {
+      transform: transformY(0px);
+    }
+    50% {
+      transform: translateY(16px);
+    }
+    100% {
+      transform: transformY(0px);
+    }
+  }
+
   align-items: center;
+  animation: bounce 1.2s infinite ease-in-out;
   background-color: transparent;
+  background-image: url(${scrollIndicator});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   border: none;
-  bottom: 16px;
+  bottom: 40px;
   display: flex;
-  height: 4.4rem;
+  height: 6.4rem;
   justify-content: center;
   outline-color: transparent;
   position: absolute;

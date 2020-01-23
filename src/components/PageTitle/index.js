@@ -15,7 +15,7 @@ function PageTitle({ featured, small, title, name }) {
         {title}
       </S.PageTitleText>
       {featured && featured.title ? <Featured {...featured} /> : null}
-      {!small ? <S.PageTitleScrollIndicator /> : null}
+      {!small && !featured ? <S.PageTitleScrollIndicator /> : null}
     </S.PageTitleWrapper>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import MemberCard from '../src/pages/Members/MemberCard';
+import MemberCard from '../src/components/MemberCard';
 
 import { Facebook } from 'styled-icons/boxicons-logos/Facebook';
 import { Instagram } from 'styled-icons/boxicons-logos/Instagram';

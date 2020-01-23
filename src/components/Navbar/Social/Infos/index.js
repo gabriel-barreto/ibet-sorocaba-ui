@@ -28,7 +28,7 @@ function Infos({ entries }) {
 export const Type = PropTypes.arrayOf(
   PropTypes.shape({
     featured: PropTypes.bool,
-    icon: PropTypes.string.isRequired,
+    icon: PropTypes.any.isRequired,
     url: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
   }),

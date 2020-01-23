@@ -75,7 +75,7 @@ Footer.propTypes = {
   ).isRequired,
   social: PropTypes.arrayOf(
     PropTypes.shape({
-      icon: PropTypes.func.isRequired,
+      icon: PropTypes.any.isRequired,
       label: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
     }),

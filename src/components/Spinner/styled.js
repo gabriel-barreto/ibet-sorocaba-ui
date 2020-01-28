@@ -15,15 +15,12 @@ export const Circle = styled.div`
   background: transparent;
   border-radius: 50%;
   border: ${props => props.borderSize || '1.64rem'} solid
-    ${props => props.bg || chroma(Colors.darkest).alpha(0.08)};
-  border-left-color: ${props => props.color || Colors.primary};
+    ${props => props.bg || chroma(Colors.light).alpha(0.04)};
+  border-left-color: ${props => props.color || Colors.secondary};
   height: ${props => props.size || defaultSize};
-  margin-bottom: ${props =>
-    !props.visible ? `-${props.size || defaultSize}` : '0'}
+  opacity: ${props => (props.visible ? 1 : 0)};
   visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  opacity: ${props => (props.visible ? '1' : '0')};
-  transition: margin-bottom 640ms, opacity 400ms, visibility 400ms;
+  transition: opacity 400ms, transform 400ms, visibility 400ms;
   width: ${props => props.size || defaultSize};
-  will-change: opacity, visibility;
-  z-index: 9;
+  will-change: opacity, transform, visibility;
 `;

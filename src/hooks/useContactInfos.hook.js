@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { contactInfo } from '../services';
-import { Icons } from '../utils';
+import { Icons, $Object } from '../utils';
 
 const mapSocial = payload =>
   payload.social.map(each => ({
@@ -11,9 +11,9 @@ const mapSocial = payload =>
 
 const mapInfos = payload => [
   {
-    value: payload.phones[0],
+    value: payload.phone,
     icon: Icons.getIcon('phone'),
-    url: `tel:${payload.phones[0]}`,
+    url: `tel:${payload.phone}`,
   },
   {
     value: payload.email,
@@ -23,7 +23,7 @@ const mapInfos = payload => [
 ];
 
 const fetchContactInfos = (state, setState) => {
-  if (!Object.keys(state.contacts).length) {
+  if ($Object.isEmpty(state.contacts)) {
     setState(prev => ({ ...prev, loading: true }));
     contactInfo
       .fetch()
@@ -31,6 +31,7 @@ const fetchContactInfos = (state, setState) => {
         setState(prev => ({
           ...prev,
           contacts: {
+            ...payload,
             social: mapSocial(payload),
             infos: mapInfos(payload),
           },

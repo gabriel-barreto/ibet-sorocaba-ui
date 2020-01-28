@@ -5,4 +5,6 @@ const errorHandler = err => {
   console.log(err);
 };
 
-export default { errorHandler, responseHandler };
+const handle = request => request.then(responseHandler).catch(errorHandler);
+
+export default { errorHandler, handle, responseHandler };

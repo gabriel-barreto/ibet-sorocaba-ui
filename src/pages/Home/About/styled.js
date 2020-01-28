@@ -24,20 +24,6 @@ export const AboutSectionWrapper = styled.section`
   }
 `;
 
-export const AboutPhoto = styled.img`
-  box-shadow: 0 2px 4px ${Chroma(Colors.darkest).alpha(0.32)};
-  height: auto;
-  margin: 0 0 1rem 0;
-  object-fit: contain;
-  width: 100%;
-  @media (max-width: 1023px) {
-    display: none;
-  }
-  @media (min-width: 1024px) {
-    margin: 0;
-  }
-`;
-
 export const AboutCoordinatorTitle = styled.p``;
 
 export const AboutCoordinatorPosition = styled.p``;
@@ -47,39 +33,9 @@ export const AboutCoordinatorName = styled.p`
   font-size: 2.4rem;
 `;
 
-export const AboutCoordinatorWrapper = styled.span`
-  margin-bottom: 1.6rem;
-
-  > * {
-    line-height: 144%;
-  }
-
-  > ${AboutCoordinatorTitle}, ${AboutCoordinatorPosition} {
-    color: var(--dark);
-    font-size: 1.6rem;
-  }
-
-  > ${AboutCoordinatorName}, ${AboutCoordinatorPosition} {
-    font-weight: 600;
-  }
-
-  @media (max-width: 1399px) {
-    display: none;
-  }
-`;
-
 export const AboutContentWrapper = styled.span`
   display: flex;
   flex-direction: column;
-`;
-
-export const AboutContentParagraph = styled.p`
-  color: var(--dark);
-  font-size: 1.6rem;
-  line-height: 156%;
-  :not(:last-of-type) {
-    margin: 0 0 1rem 0;
-  }
 `;
 
 export const AboutContentButton = styled(Link)`

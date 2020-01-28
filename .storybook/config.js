@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { addDecorator, configure } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import styled from 'styled-components';
 
 import { GlobalStyle } from '../src/styles';
@@ -22,6 +23,7 @@ const withGlobalStyle = storyFn => (
   </Wrapper>
 );
 
+addDecorator(withKnobs);
 addDecorator(withRouter);
 addDecorator(withGlobalStyle);
 

@@ -6,7 +6,7 @@ const headers = {
 };
 
 const config = {
-  development: { baseURL: '', headers },
+  development: { baseURL: 'http://localhost:5000/api', headers },
   production: { baseURL: '', headers },
 };
 

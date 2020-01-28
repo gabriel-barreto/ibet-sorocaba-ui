@@ -6,13 +6,14 @@ import Footer from '../Footer';
 import Navbar from '../Navbar';
 import PageTitle from '../PageTitle';
 import SEO from '../SEO';
+import Spinner from '../Spinner';
 
 import Routes from '../../routes';
 import { useContactInfos } from '../../hooks';
 
 function Layout({ children, featured, title, match }) {
   const [actualPath, setActualPath] = useState('');
-  const [contacts] = useContactInfos();
+  const [contacts, loading] = useContactInfos();
 
   const activeRoute = Routes.find(each => each.path === match.path);
 
@@ -26,20 +27,26 @@ function Layout({ children, featured, title, match }) {
   return (
     <>
       <SEO title={title} />
-      <header id="app-header">
-        <Navbar
-          title={title}
-          social={contacts.social || []}
-          infos={contacts.infos || []}
-        />
-        <PageTitle
-          name={activeRoute.name}
-          title={activeRoute.title}
-          featured={featured}
-        />
-      </header>
-      <main id="app-main">{children}</main>
-      <Footer social={contacts.social || []} infos={contacts.infos || []} />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <header id="app-header">
+            <Navbar
+              title={title}
+              social={contacts.social || []}
+              infos={contacts.infos || []}
+            />
+            <PageTitle
+              name={activeRoute.name}
+              title={activeRoute.title}
+              featured={featured}
+            />
+          </header>
+          <main id="app-main">{children}</main>
+          <Footer social={contacts.social || []} infos={contacts.infos || []} />
+        </>
+      )}
     </>
   );
 }

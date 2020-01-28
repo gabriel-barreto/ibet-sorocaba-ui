@@ -24,7 +24,7 @@ const mapInfos = payload => [
 
 const fetchContactInfos = (state, setState) => {
   if (!Object.keys(state.contacts).length) {
-    setState(prev => ({ ...prev, loading: false }));
+    setState(prev => ({ ...prev, loading: true }));
     contactInfo
       .fetch()
       .then(payload => {

@@ -8,6 +8,8 @@ import PageTitle from '../PageTitle';
 import SEO from '../SEO';
 import Spinner from '../Spinner';
 
+import * as S from './styled';
+
 import Routes from '../../routes';
 import { useContactInfos } from '../../hooks';
 
@@ -27,9 +29,10 @@ function Layout({ children, featured, title, match }) {
   return (
     <>
       <SEO title={title} />
-      {loading ? (
+      <S.LayoutSpinnerWrapper visible={loading}>
         <Spinner />
-      ) : (
+      </S.LayoutSpinnerWrapper>
+      {!loading ? (
         <>
           <header id="app-header">
             <Navbar
@@ -46,7 +49,7 @@ function Layout({ children, featured, title, match }) {
           <main id="app-main">{children}</main>
           <Footer social={contacts.social || []} infos={contacts.infos || []} />
         </>
-      )}
+      ) : null}
     </>
   );
 }

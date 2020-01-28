@@ -3,9 +3,9 @@ import { HTTP as HTTPUtils } from '../utils';
 
 const PATH = '/contact';
 
-const fetch = () =>
+const fetch = (fields = 'social phone email hours') =>
   $http
-    .get(PATH)
+    .get(PATH, { params: { fields } })
     .then(HTTPUtils.responseHandler)
     .catch(HTTPUtils.errorHandler);
 

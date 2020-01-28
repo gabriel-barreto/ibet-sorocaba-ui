@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import * as S from './styled';
 
-function Featured({ description, label, subtitle, title, URL }) {
+function Featured({ action, description, subtitle, title, url }) {
   return (
     <S.PageTitleFeaturedContainer>
       <S.PageTitleFeaturedTitles>
@@ -17,17 +17,17 @@ function Featured({ description, label, subtitle, title, URL }) {
           </S.PageTitleFeaturedDescription>
         ))}
       </S.PageTitleFeaturedDescriptionContainer>
-      <S.PageTitleFeaturedLink to={URL}>{label}</S.PageTitleFeaturedLink>
+      <S.PageTitleFeaturedLink to={url}>{action}</S.PageTitleFeaturedLink>
     </S.PageTitleFeaturedContainer>
   );
 }
 
 Featured.propTypes = {
   description: PropTypes.arrayOf(PropTypes.string).isRequired,
-  label: PropTypes.string.isRequired,
+  action: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  URL: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export default Featured;

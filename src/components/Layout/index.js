@@ -47,7 +47,11 @@ function Layout({ children, featured, title, match }) {
             />
           </header>
           <main id="app-main">{children}</main>
-          <Footer social={contacts.social || []} infos={contacts.infos || []} />
+          <Footer
+            hours={contacts.hours || []}
+            infos={contacts.infos || []}
+            social={contacts.social || []}
+          />
         </>
       ) : null}
     </>

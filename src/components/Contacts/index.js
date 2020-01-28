@@ -32,7 +32,8 @@ function ContactSection({ hours }) {
   );
 }
 
-ContactSection.defaultProps = { hours: C.hours };
-ContactSection.propTypes = { hours: PropTypes.arrayOf(PropTypes.string) };
+ContactSection.propTypes = {
+  hours: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default ContactSection;

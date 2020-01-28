@@ -8,10 +8,10 @@ import Infos from '../Navbar/Social/Infos';
 import * as C from './content';
 import * as S from './styled';
 
-function Footer({ infos, social }) {
+function Footer({ hours, infos, social }) {
   return (
     <>
-      <ContactSection />
+      <ContactSection hours={hours} />
       <S.FooterWrapper>
         <S.FooterBrand
           src={C.images.brand}
@@ -65,6 +65,7 @@ function Footer({ infos, social }) {
 }
 
 Footer.propTypes = {
+  hours: PropTypes.arrayOf(PropTypes.string).isRequired,
   infos: PropTypes.arrayOf(
     PropTypes.shape({
       label: '',

@@ -7,11 +7,13 @@ import Navbar from '../Navbar';
 import PageTitle from '../PageTitle';
 import SEO from '../SEO';
 
-import * as C from './content';
 import Routes from '../../routes';
+import { useContactInfos } from '../../hooks';
 
 function Layout({ children, featured, title, match }) {
   const [actualPath, setActualPath] = useState('');
+  const [contacts] = useContactInfos();
+
   const activeRoute = Routes.find(each => each.path === match.path);
 
   useEffect(() => {
@@ -20,11 +22,16 @@ function Layout({ children, featured, title, match }) {
     }
     setActualPath(match.path);
   }, [match]);
+
   return (
     <>
       <SEO title={title} />
       <header id="app-header">
-        <Navbar title={title} social={C.social} infos={C.infos} />
+        <Navbar
+          title={title}
+          social={contacts.social || []}
+          infos={contacts.infos || []}
+        />
         <PageTitle
           name={activeRoute.name}
           title={activeRoute.title}
@@ -32,7 +39,7 @@ function Layout({ children, featured, title, match }) {
         />
       </header>
       <main id="app-main">{children}</main>
-      <Footer social={C.social} infos={C.infos} />
+      <Footer social={contacts.social || []} infos={contacts.infos || []} />
     </>
   );
 }

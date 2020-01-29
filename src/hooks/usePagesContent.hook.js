@@ -12,7 +12,9 @@ export default slug => {
       setState(prev => ({ ...prev, loading: true }));
 
       PagesContent.fetch(slug)
-        .then(payload => setState(prev => ({ ...prev, payload })))
+        .then(payload => {
+          if (payload) setState(prev => ({ ...prev, payload }));
+        })
         .finally(() => {
           setState(prev => ({ ...prev, loading: false }));
         });

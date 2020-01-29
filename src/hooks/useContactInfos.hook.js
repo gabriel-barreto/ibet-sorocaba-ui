@@ -28,14 +28,16 @@ const fetchContactInfos = (state, setState) => {
     contactInfo
       .fetch()
       .then(payload => {
-        setState(prev => ({
-          ...prev,
-          contacts: {
-            ...payload,
-            social: mapSocial(payload),
-            infos: mapInfos(payload),
-          },
-        }));
+        if (payload) {
+          setState(prev => ({
+            ...prev,
+            contacts: {
+              ...payload,
+              social: mapSocial(payload),
+              infos: mapInfos(payload),
+            },
+          }));
+        }
       })
       .finally(() => {
         setState(prev => ({ ...prev, loading: false }));

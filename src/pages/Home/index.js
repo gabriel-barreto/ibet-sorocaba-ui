@@ -1,6 +1,9 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import { usePagesContent } from '../../hooks';
+
+import { $Object } from '../../utils';
 
 import { Layout, ListIntroCards, Spinner, Structure } from '../../components';
 
@@ -17,15 +20,19 @@ function HomePage() {
       <S.SpinnerWrapper visible={loading}>
         <Spinner />
       </S.SpinnerWrapper>
-      <>
-        <WelcomeSection />
-        <AboutSection
-          coordinator={state.coordinator || {}}
-          content={state.about || ''}
-        />
-        <ListIntroCards />
-        <Structure />
-      </>
+      {!$Object.isEmpty(state) ? (
+        <>
+          <WelcomeSection />
+          <AboutSection
+            coordinator={state.coordinator || {}}
+            content={state.about || ''}
+          />
+          <ListIntroCards />
+          <Structure />
+        </>
+      ) : (
+        <Redirect from="*" to="/erro" />
+      )}
     </Layout>
   );
 }

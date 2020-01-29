@@ -7,7 +7,11 @@ import * as C from './content';
 import * as S from './styled';
 
 function Slider({ slides }) {
-  const [state, setState] = useState({ activeSlides: [] });
+  const [state, setState] = useState({
+    itemsPerPage: 0,
+    page: { active: 0, total: 0 },
+    activeSlides: [],
+  });
 
   useEffect(() => {
     const itemsPerPage = Media.getScreenSize() === 'sm' ? 1 : 2;
@@ -19,7 +23,7 @@ function Slider({ slides }) {
       page: { active: 1, total: totalPages },
       activeSlides: [...slides.slice(0, itemsPerPage).map(each => each.key)],
     }));
-  }, []);
+  }, [slides]);
 
   function changeSlide(newPage) {
     const end = newPage * state.itemsPerPage;

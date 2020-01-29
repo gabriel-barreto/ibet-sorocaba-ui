@@ -10,18 +10,19 @@ export const NotFoundPageWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 3.2rem;
   min-height: 100vh;
   width: 100%;
+  @media (min-width: 768px) {
+    padding: 6.4rem;
+  }
 `;
 
 export const NotFoundIcon = styled.img`
-  height: 6.4rem;
+  height: 12.8rem;
   margin: 0 0 2.4rem 0;
   max-width: 100%;
   width: auto;
-  @media (min-width: 1024px) {
-    height: 12.8rem;
-  }
   @media (min-width: 1200px) {
     height: 25.6rem;
   }

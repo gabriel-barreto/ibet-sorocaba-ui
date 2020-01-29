@@ -27,7 +27,7 @@ function HomePage() {
         content={state.about || ''}
       />
       <ListIntroCards />
-      <Structure />
+      <Structure {...state.structure} />
     </Layout>
   );
 }

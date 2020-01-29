@@ -27,17 +27,24 @@ const fetchContactInfos = (state, setState) => {
     setState(prev => ({ ...prev, loading: true }));
     contactInfo
       .fetch()
+      .then(response => {
+        if (response === undefined) throw new Error('fail to fetch');
+        return {
+          ...response,
+          social: mapSocial(response),
+          infos: mapInfos(response),
+        };
+      })
       .then(payload => {
-        if (payload) {
-          setState(prev => ({
-            ...prev,
-            contacts: {
-              ...payload,
-              social: mapSocial(payload),
-              infos: mapInfos(payload),
-            },
-          }));
-        }
+        setState(prev => ({ ...prev, contacts: payload }));
+      })
+      .catch(() => {
+        setState(prev => ({
+          ...prev,
+          loading: false,
+          contacts: {},
+          error: true,
+        }));
       })
       .finally(() => {
         setState(prev => ({ ...prev, loading: false }));
@@ -49,11 +56,12 @@ export default () => {
   const [state, setState] = useState({
     contacts: {},
     loading: false,
+    error: false,
   });
 
   useEffect(() => {
     fetchContactInfos(state, setState);
   }, []);
 
-  return [state.contacts, state.loading];
+  return [state.contacts, state.loading, state.error];
 };

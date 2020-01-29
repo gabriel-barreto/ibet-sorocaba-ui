@@ -56,6 +56,7 @@ export default [
     component: props => <Contact {...props} />,
   },
   {
+    name: 'error',
     path: '/erro',
     component: props => <NotFound {...props} />,
   },

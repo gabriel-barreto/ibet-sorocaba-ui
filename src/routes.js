@@ -7,6 +7,7 @@ import {
   Home,
   Masters,
   Members,
+  NotFound,
   Specialization,
 } from './pages';
 
@@ -53,5 +54,9 @@ export default [
     name: 'contact',
     path: '/contato',
     component: props => <Contact {...props} />,
+  },
+  {
+    path: '/erro',
+    component: props => <NotFound {...props} />,
   },
 ];

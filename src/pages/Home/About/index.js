@@ -9,7 +9,6 @@ import Coordinator from './Coordinator';
 import * as S from './styled';
 
 function AboutSection({ coordinator, content }) {
-  console.log(coordinator, $Object.isEmpty(coordinator));
   return (
     <S.AboutSectionWrapper id="about">
       {!$Object.isEmpty(coordinator) ? <Coordinator {...coordinator} /> : null}

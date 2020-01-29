@@ -16,23 +16,21 @@ function HomePage() {
   const [state, loading] = usePagesContent('home');
 
   return (
-    <Layout title="Home" featured={state.featured || {}}>
+    <Layout
+      title="Home"
+      featured={state.featured || {}}
+      redirectCondition={$Object.isEmpty(state)}
+    >
       <S.SpinnerWrapper visible={loading}>
         <Spinner />
       </S.SpinnerWrapper>
-      {!$Object.isEmpty(state) ? (
-        <>
-          <WelcomeSection />
-          <AboutSection
-            coordinator={state.coordinator || {}}
-            content={state.about || ''}
-          />
-          <ListIntroCards />
-          <Structure />
-        </>
-      ) : (
-        <Redirect from="*" to="/erro" />
-      )}
+      <WelcomeSection />
+      <AboutSection
+        coordinator={state.coordinator || {}}
+        content={state.about || ''}
+      />
+      <ListIntroCards />
+      <Structure />
     </Layout>
   );
 }

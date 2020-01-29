@@ -6,8 +6,8 @@ import * as S from './styled';
 function Coordinator({ name, position, title, noPhoto, photo }) {
   return (
     <S.CoordinatorWrapper className={noPhoto ? '--visible' : ''}>
-      {!noPhoto || !photo ? (
-        <S.CoordinatorPhoto src={photo} title={name} alt={name} />
+      {!noPhoto && photo ? (
+        <S.CoordinatorPhoto src={photo.url} title={name} alt={name} />
       ) : null}
       <S.CoordinatorInfoWrapper>
         <S.CoordinatorName>{name}</S.CoordinatorName>
@@ -18,11 +18,11 @@ function Coordinator({ name, position, title, noPhoto, photo }) {
   );
 }
 
-Coordinator.defaultProps = { photo: '', noPhoto: false };
+Coordinator.defaultProps = { photo: {}, noPhoto: false };
 
 Coordinator.propTypes = {
   name: PropTypes.string.isRequired,
-  photo: PropTypes.string,
+  photo: PropTypes.shape({ url: PropTypes.string.isRequired }),
   position: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   noPhoto: PropTypes.bool,

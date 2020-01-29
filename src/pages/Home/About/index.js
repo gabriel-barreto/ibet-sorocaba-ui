@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { $Object } from '../../../utils';
+
 import { HTMLContainer } from '../../../components';
+import Coordinator from './Coordinator';
 
 import * as S from './styled';
 
-import Coordinator from './Coordinator';
-
 function AboutSection({ coordinator, content }) {
+  console.log(coordinator, $Object.isEmpty(coordinator));
   return (
     <S.AboutSectionWrapper id="about">
-      <Coordinator {...coordinator} />
+      {!$Object.isEmpty(coordinator) ? <Coordinator {...coordinator} /> : null}
       <S.AboutContentWrapper>
-        <Coordinator {...coordinator} noPhoto />
+        {!$Object.isEmpty(coordinator) ? (
+          <Coordinator {...coordinator} noPhoto />
+        ) : null}
         <HTMLContainer content={content} />
         <S.AboutContentButton to="/ibet-sorocaba">
           Ler mais...
@@ -22,13 +26,14 @@ function AboutSection({ coordinator, content }) {
   );
 }
 
+AboutSection.defaultProps = { coordinator: {} };
 AboutSection.propTypes = {
   coordinator: PropTypes.shape({
-    photo: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
-  }).isRequired,
+    photo: PropTypes.shape({ photo: PropTypes.string }),
+    name: PropTypes.string,
+    title: PropTypes.string,
+    position: PropTypes.string,
+  }),
   content: PropTypes.string.isRequired,
 };
 

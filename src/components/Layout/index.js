@@ -16,7 +16,7 @@ import { useContactInfos } from '../../hooks';
 
 function Layout({ children, featured, redirectCondition, title, match }) {
   const [actualPath, setActualPath] = useState('');
-  const [contacts, loading] = useContactInfos();
+  const [contacts, loading, error] = useContactInfos();
 
   const activeRoute = Routes.find(each => each.path === match.path);
 
@@ -34,7 +34,7 @@ function Layout({ children, featured, redirectCondition, title, match }) {
         <Spinner />
       </S.LayoutSpinnerWrapper>
       {!loading ? (
-        <ErrorRedirect condition={redirectCondition}>
+        <ErrorRedirect condition={redirectCondition || error}>
           <header id="app-header">
             <Navbar
               title={title}

@@ -6,7 +6,7 @@ import Slider from '../Slider';
 import * as C from './content';
 import * as S from './styled';
 
-function Structure({ paragraphs }) {
+function Structure({ paragraphs, gallery }) {
   return (
     <S.StructureWrapper>
       <S.StructureContentContainer>
@@ -17,12 +17,21 @@ function Structure({ paragraphs }) {
           ))}
         </S.StructureParagraphs>
       </S.StructureContentContainer>
-      <Slider />
+      <Slider slides={gallery} />
     </S.StructureWrapper>
   );
 }
 
-Structure.defaultProps = { paragraphs: C.paragraphs };
-Structure.propTypes = { paragraphs: PropTypes.arrayOf(PropTypes.string) };
+Structure.defaultProps = { paragraphs: C.paragraphs, gallery: [] };
+Structure.propTypes = {
+  paragraphs: PropTypes.arrayOf(PropTypes.string),
+  gallery: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      label: PropTypes.string,
+      url: PropTypes.string,
+    }),
+  ),
+};
 
 export default Structure;

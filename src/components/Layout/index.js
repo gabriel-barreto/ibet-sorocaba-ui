@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import ErrorRedirect from '../ErrorRedirect';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
 import PageTitle from '../PageTitle';
@@ -13,7 +14,7 @@ import * as S from './styled';
 import Routes from '../../routes';
 import { useContactInfos } from '../../hooks';
 
-function Layout({ children, featured, title, match }) {
+function Layout({ children, featured, redirectCondition, title, match }) {
   const [actualPath, setActualPath] = useState('');
   const [contacts, loading] = useContactInfos();
 
@@ -33,7 +34,7 @@ function Layout({ children, featured, title, match }) {
         <Spinner />
       </S.LayoutSpinnerWrapper>
       {!loading ? (
-        <>
+        <ErrorRedirect condition={redirectCondition}>
           <header id="app-header">
             <Navbar
               title={title}
@@ -52,13 +53,13 @@ function Layout({ children, featured, title, match }) {
             infos={contacts.infos || []}
             social={contacts.social || []}
           />
-        </>
+        </ErrorRedirect>
       ) : null}
     </>
   );
 }
 
-Layout.defaultProps = { title: '', featured: false };
+Layout.defaultProps = { title: '', featured: false, redirectCondition: false };
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
@@ -72,6 +73,7 @@ Layout.propTypes = {
     }),
   ]),
   match: PropTypes.shape({ path: PropTypes.string.isRequired }).isRequired,
+  redirectCondition: PropTypes.bool,
   title: PropTypes.string,
 };
 

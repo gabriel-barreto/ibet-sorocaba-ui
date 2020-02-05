@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 
 import Slider from '../Slider';
 
-import * as C from './content';
 import * as S from './styled';
 
-function Structure({ paragraphs, gallery }) {
+function Structure({ content, gallery }) {
   return (
     <S.StructureWrapper>
       <S.StructureContentContainer>
         <S.StructureTitle>Nossa Estrutura</S.StructureTitle>
         <S.StructureParagraphs>
-          {paragraphs.map((each, i) => (
+          {content.map((each, i) => (
             <S.StructureParagraph key={i}>{each}</S.StructureParagraph>
           ))}
         </S.StructureParagraphs>
@@ -22,9 +21,9 @@ function Structure({ paragraphs, gallery }) {
   );
 }
 
-Structure.defaultProps = { paragraphs: C.paragraphs, gallery: [] };
+Structure.defaultProps = { content: [], gallery: [] };
 Structure.propTypes = {
-  paragraphs: PropTypes.arrayOf(PropTypes.string),
+  content: PropTypes.arrayOf(PropTypes.string),
   gallery: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,

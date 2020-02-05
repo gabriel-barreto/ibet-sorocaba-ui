@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { HTMLContainer } from '../../../components';
-
-import * as C from './content';
 import * as S from './styled';
 
 function CoordinationSection({ coordinators }) {
@@ -14,11 +11,13 @@ function CoordinationSection({ coordinators }) {
         {coordinators.map(each => (
           <S.CoordinatorProfile key={each.name}>
             <S.CoordinatorProfilePhoto
-              src={each.photo}
+              src={each.photo.url}
               title={each.name}
               alt={each.name}
             />
-            <S.CoordinatorProfileContent content={each.content} />
+            {each.content ? (
+              <S.CoordinatorProfileContent content={each.content} />
+            ) : null}
             <S.CoordinatorProfileInfo>
               <S.CoordinatorProfileName>{each.name}</S.CoordinatorProfileName>
               <S.CoordinatorProfileTitle>
@@ -35,7 +34,7 @@ function CoordinationSection({ coordinators }) {
   );
 }
 
-CoordinationSection.defaultProps = { coordinators: C.coordinators };
+CoordinationSection.defaultProps = { coordinators: [] };
 CoordinationSection.propTypes = {
   coordinators: PropTypes.arrayOf(
     PropTypes.shape({

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { HTMLContainer } from '../../../components';
 
-import * as C from './content';
 import * as S from './styled';
 
 function AboutSection({ content }) {
@@ -15,7 +14,7 @@ function AboutSection({ content }) {
   );
 }
 
-AboutSection.defaultProps = { content: C.content };
+AboutSection.defaultProps = { content: '' };
 AboutSection.propTypes = { content: PropTypes.string };
 
 export default AboutSection;

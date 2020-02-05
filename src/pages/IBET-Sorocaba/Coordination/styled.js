@@ -52,11 +52,7 @@ export const CoordinatorProfilePhoto = styled.img`
   grid-area: photo;
   height: 32rem;
   object-fit: cover;
-  margin: 0 0 2.4rem 0;
   width: 100%;
-  @media (min-width: 768px) {
-    margin: 0 0 3.2rem 0;
-  }
 `;
 
 export const CoordinatorProfileName = styled.h1`
@@ -81,6 +77,7 @@ export const CoordinatorProfileTitle = styled.p`
 
 export const CoordinatorProfileContent = styled(HTMLContainer)`
   grid-area: content;
+  margin: 2.4rem 0 0 0;
 `;
 
 export const CoordinatorProfilePosition = styled.p`
@@ -117,8 +114,8 @@ export const CoordinatorProfile = styled.section`
   }
 
   ${CoordinatorProfileName},
-    ${CoordinatorProfilePosition},
-    ${CoordinatorProfileTitle} {
+  ${CoordinatorProfilePosition},
+  ${CoordinatorProfileTitle} {
     line-height: 23px;
   }
 `;

@@ -1,3 +1,4 @@
+export { default as FullScreenSpinner } from './FullScreenSpinner';
 export { default as HTMLContainer } from './HTMLContainer';
 export { default as Input } from './Input';
 export { default as Layout } from './Layout';

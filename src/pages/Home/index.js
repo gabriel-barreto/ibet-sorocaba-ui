@@ -2,12 +2,15 @@ import React from 'react';
 
 import { usePagesContent } from '../../hooks';
 
-import { Layout, ListIntroCards, Spinner, Structure } from '../../components';
+import {
+  FullScreenSpinner,
+  Layout,
+  ListIntroCards,
+  Structure,
+} from '../../components';
 
 import AboutSection from './About';
 import WelcomeSection from './Welcome';
-
-import * as S from './styled';
 
 function HomePage() {
   const [state, loading, error] = usePagesContent('home');
@@ -18,9 +21,7 @@ function HomePage() {
       featured={state.featured || {}}
       redirectCondition={error}
     >
-      <S.SpinnerWrapper visible={loading}>
-        <Spinner />
-      </S.SpinnerWrapper>
+      <FullScreenSpinner visible={loading} />
       <WelcomeSection />
       <AboutSection
         coordinator={state.coordinator || {}}

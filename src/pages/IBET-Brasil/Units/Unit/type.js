@@ -1,15 +1,12 @@
 import PropTypes from 'prop-types';
 
+import { Type as CoordinatorType } from './coordinator';
+import { Type as EmailsType } from './emails';
+import { Type as PhonesType } from './phones';
+
 export default {
-  city: PropTypes.string.isRequired,
-  coordinators: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-  email: PropTypes.arrayOf(PropTypes.string),
-  initials: PropTypes.string.isRequired,
-  phone: PropTypes.arrayOf(PropTypes.string),
-  uf: PropTypes.string.isRequired,
+  coordinator: CoordinatorType.isRequired,
+  email: EmailsType,
+  phone: PhonesType,
+  unit: PropTypes.string.isRequired,
 };

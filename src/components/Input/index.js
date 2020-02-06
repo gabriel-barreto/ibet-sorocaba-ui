@@ -10,7 +10,7 @@ function Input({ helper, label, mask, name, onInput, type, ...props }) {
     const prev = value;
     let { value: payload } = target;
 
-    if (value || mask) payload = mask(payload);
+    if (value && mask) payload = mask(payload);
     setValue(payload);
 
     if (prev === payload) return null;

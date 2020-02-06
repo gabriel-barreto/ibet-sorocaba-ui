@@ -2,14 +2,22 @@ import React from 'react';
 
 import { LinkAlt as LinkIcon } from 'styled-icons/boxicons-regular/LinkAlt';
 
+import FallbackProfilePhoto from '../../assets/FallbackProfilePhoto.jpg';
+
+import { Icons } from '../../utils';
+
 import * as S from './styled';
 
 import type from './type';
 
 function MemberCard({ name, title, photo, social }) {
+  const getIcon = iconName => {
+    const Icon = Icons.getIcon(iconName);
+    return Icon ? <Icon size={24} /> : <LinkIcon size={24} />;
+  };
   return (
     <S.MemberCard>
-      <S.MemberPhoto src={photo} title={name} alt={name} />
+      <S.MemberPhoto src={photo.url} title={name} alt={name} />
       <S.MemberName>{name}</S.MemberName>
       <S.MemberTitle>{title}</S.MemberTitle>
       <S.MemberSocial>
@@ -22,7 +30,7 @@ function MemberCard({ name, title, photo, social }) {
             target="blank"
             rel="noreferrer noopener"
           >
-            {each.icon ? <each.icon size={24} /> : <LinkIcon size={24} />}
+            {getIcon(each.icon)}
           </S.MemberSocialLink>
         ))}
       </S.MemberSocial>
@@ -30,6 +38,7 @@ function MemberCard({ name, title, photo, social }) {
   );
 }
 
+MemberCard.defaultProps = { photo: { url: FallbackProfilePhoto } };
 MemberCard.propTypes = type;
 
 export default MemberCard;

@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FallbackProfilePhoto from '../../../assets/FallbackProfilePhoto.jpg';
+
 import * as S from './styled';
 
 function CoordinationSection({ coordinators }) {
@@ -11,7 +13,11 @@ function CoordinationSection({ coordinators }) {
         {coordinators.map(each => (
           <S.CoordinatorProfile key={each.name}>
             <S.CoordinatorProfilePhoto
-              src={each.photo.url}
+              src={
+                each.photo && each.photo.url
+                  ? each.photo.url
+                  : FallbackProfilePhoto
+              }
               title={each.name}
               alt={each.name}
             />
@@ -40,7 +46,9 @@ CoordinationSection.propTypes = {
     PropTypes.shape({
       content: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired,
+      photo: PropTypes.shape({
+        url: PropTypes.string,
+      }),
       position: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
     }),

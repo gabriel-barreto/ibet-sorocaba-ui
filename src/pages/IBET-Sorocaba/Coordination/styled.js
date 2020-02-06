@@ -40,10 +40,10 @@ export const CoordinationProfilesWrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    row-gap: 3.2rem;
+    row-gap: 4rem;
   }
   @media (min-width: 1024px) {
-    column-gap: 6.4rem;
+    column-gap: 8rem;
   }
 `;
 
@@ -51,6 +51,7 @@ export const CoordinatorProfilePhoto = styled.img`
   box-shadow: 0 2px 4px ${chroma(Colors.darkest).alpha(0.32)};
   grid-area: photo;
   height: 32rem;
+  max-width: 32rem;
   object-fit: cover;
   width: 100%;
 `;

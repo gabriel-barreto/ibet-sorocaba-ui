@@ -11,14 +11,14 @@ export const MemberCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 3.2rem;
+  padding: 2.4rem;
   width: 100%;
 `;
 
 export const MemberPhoto = styled.img`
   height: 16rem;
   object-fit: cover;
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
   width: 16rem;
 `;
 
@@ -46,7 +46,7 @@ export const MemberSocial = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 1rem 0 0 0;
+  margin: 1rem 0 -0.8rem 0;
 `;
 
 export const MemberSocialLink = styled.a`

@@ -1,29 +1,32 @@
 import React from 'react';
 
-import { Layout } from '../../components';
+import { usePagesContent } from '../../hooks';
 
+import { FullScreenSpinner, Layout } from '../../components';
 import MemberCard from '../../components/MemberCard';
 
 import * as C from './content';
 import * as S from './styled';
 
 function MembersPage() {
+  const [state, loading, error] = usePagesContent('members');
   return (
-    <Layout title="Membros">
+    <Layout title="Membros" redirectCondition={error}>
+      <FullScreenSpinner visible={loading} />
       <S.MembersSection>
         <S.MembersSectionTitle>Coordenadores</S.MembersSectionTitle>
         <S.MembersSectionGroup>
-          {C.members
-            .filter(each => each.coord)
-            .map(each => (
-              <MemberCard {...each} key={each.name} />
-            ))}
+          {state && state.length > 0
+            ? state
+                .filter(each => new RegExp('^coord', 'i').test(each.position))
+                .map(each => <MemberCard {...each} key={each.name} />)
+            : null}
         </S.MembersSectionGroup>
         <S.MembersSectionTitle>Professores</S.MembersSectionTitle>
         <S.MembersSectionGroup>
-          {C.members.map(each => (
-            <MemberCard {...each} key={each.name} />
-          ))}
+          {state && state.length > 0
+            ? state.map(each => <MemberCard {...each} key={each.name} />)
+            : null}
         </S.MembersSectionGroup>
       </S.MembersSection>
     </Layout>

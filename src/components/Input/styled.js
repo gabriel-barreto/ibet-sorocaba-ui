@@ -14,18 +14,17 @@ export const InputGroup = styled.span`
 `;
 
 export const InputField = styled.input`
-  background-color: var(--lightest);
+  background-color: ${chroma(Colors.light).alpha(0.8)};
   border: none;
   border-radius: 2px;
-  box-shadow: 0 2px 4px ${chroma(Colors.darkest).alpha(0.32)};
   color: var(--dark);
   font-size: 1.6rem;
   outline-color: var(--secondary);
-  padding: 0.8rem 2.4rem 0.8rem 1.6rem;
+  padding: 1rem 2.4rem 0.8rem 1.6rem;
   width: 100%;
 
   ::placeholder {
-    color: ${chroma(Colors.dark).alpha(0.4)};
+    color: ${chroma(Colors.dark).alpha(0.64)};
   }
 `;
 

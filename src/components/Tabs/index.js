@@ -11,9 +11,14 @@ function Tabs({ entries }) {
   }
 
   useEffect(() => {
-    const [{ label: active }] = entries;
+    let active = '';
+    if (entries && entries.length > 0) {
+      const [{ label }] = entries;
+      active = label;
+    }
+
     setState(prev => ({ ...prev, active }));
-  }, []);
+  }, [entries]);
 
   return (
     <S.TabsWrapper>

@@ -6,3 +6,4 @@ export { default as ListIntroCards } from './ListIntroCard';
 export { default as Spinner } from './Spinner';
 export { default as Structure } from './Structure';
 export { default as Tabs } from './Tabs';
+export { default as Toast } from './Toast';

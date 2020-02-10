@@ -1,17 +1,16 @@
-import $Operators from './operators.utils';
-
-const responseHandler = response => response.data;
+const responseHandler = response => {
+  if (response.status >= 200 && response.status <= 201) {
+    return response.data;
+  }
+  throw new Error(response);
+};
 
 const errorHandler = err => {
   console.error('Request error');
   console.log(err);
+  throw err;
 };
 
-const handle = request => {
-  const debounceReq = $Operators.debounce(500, request);
-  return debounceReq()
-    .then(responseHandler)
-    .catch(errorHandler);
-};
+const handle = request => request.then(responseHandler).catch(errorHandler);
 
 export default { errorHandler, handle, responseHandler };

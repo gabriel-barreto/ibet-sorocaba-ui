@@ -7,7 +7,7 @@ const headers = {
 
 const config = {
   development: { baseURL: 'http://localhost:5000/api', headers },
-  production: { baseURL: '', headers },
+  production: { baseURL: 'https://ibet-sorocaba.herokuapp.com/api', headers },
 };
 
 export default config[AppConfig.mode];

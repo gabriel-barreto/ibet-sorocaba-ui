@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import { useContacts } from '../../context';
+
 import ErrorRedirect from '../ErrorRedirect';
 import Footer from '../Footer';
 import Navbar from '../Navbar';
@@ -12,11 +14,10 @@ import Spinner from '../Spinner';
 import * as S from './styled';
 
 import Routes from '../../routes';
-import { useContactInfos } from '../../hooks';
 
 function Layout({ children, featured, redirectCondition, title, match }) {
   const [actualPath, setActualPath] = useState('');
-  const [contacts, loading, error] = useContactInfos();
+  const { contacts, loading, error } = useContacts();
 
   const activeRoute = Routes.find(each => each.path === match.path);
 

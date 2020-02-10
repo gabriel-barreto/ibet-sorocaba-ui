@@ -5,17 +5,21 @@ import { GlobalStyle } from './styles';
 
 import Routes from './routes';
 
+import { ContactsProvider } from './context';
+
 function App() {
   return (
     <>
       <GlobalStyle />
       <BrowserRouter>
-        <Switch>
-          {Routes.map(each => (
-            <Route key={each.name} {...each} />
-          ))}
-          <Redirect from="*" to="/" />
-        </Switch>
+        <ContactsProvider>
+          <Switch>
+            {Routes.map(each => (
+              <Route key={each.name} {...each} />
+            ))}
+            <Redirect from="*" to="/" />
+          </Switch>
+        </ContactsProvider>
       </BrowserRouter>
     </>
   );

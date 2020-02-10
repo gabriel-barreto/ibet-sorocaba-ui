@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import { Colors } from '../../../styles';
 
+import { Input } from '../../../components';
+
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
@@ -36,5 +38,16 @@ export const FormSubmitButton = styled.button`
   :focus {
     background-color: var(--secondary-dark);
     color: var(--light);
+  }
+
+  :disabled {
+    background-color: ${chroma(Colors.secondary).alpha(0.4)};
+    cursor: not-allowed;
+  }
+`;
+
+export const FormInput = styled(Input)`
+  > input {
+    background-color: ${chroma(Colors.lightest).alpha(0.8)};
   }
 `;

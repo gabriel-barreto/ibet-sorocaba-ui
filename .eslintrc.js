@@ -19,6 +19,14 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     'no-underscore-dangle': 'off',
+    'no-unused-vars': [
+      'error',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        ignoreRestSiblings: true,
+      },
+    ],
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': [
       'warn',

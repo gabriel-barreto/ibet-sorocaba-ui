@@ -46,4 +46,9 @@ export const ContactFormSubmitButton = styled.button`
     background-color: var(--secondary-dark);
     color: var(--light);
   }
+
+  :disabled {
+    background-color: ${chroma(Colors.secondary).alpha(0.4)};
+    cursor: not-allowed;
+  }
 `;

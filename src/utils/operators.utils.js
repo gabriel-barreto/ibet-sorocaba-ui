@@ -1,8 +1,10 @@
 const debounce = (timeout, fn) => {
   let timer = 0;
-  return () => {
+  return (...args) => {
     clearTimeout(timer);
-    timer = setTimeout(fn, timeout);
+    timer = setTimeout(() => {
+      fn(...args);
+    }, timeout);
   };
 };
 

@@ -99,7 +99,8 @@ export const SlideItem = styled.img`
   display: none;
   height: auto;
   max-height: 40rem;
-  object-fit: none;
+  object-fit: cover;
+  object-position: center;
   transition: display 400ms;
   width: 100%;
   will-change: display;

@@ -12,24 +12,18 @@ export const entries = [
   {
     bg: SpecializationBg,
     icon: <SpecializationIcon size={64} />,
-    description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it",
-    title: 'Especalização',
+    title: 'Especialização',
     slug: '/',
   },
   {
     bg: MastersBg,
     icon: <MastersIcon size={64} />,
-    description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it",
     title: 'Mestrado',
     slug: '/',
   },
   {
     bg: TeachersBg,
     icon: <TeacherIcon size={64} />,
-    description:
-      "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it",
     title: 'Professores',
     slug: '/',
   },

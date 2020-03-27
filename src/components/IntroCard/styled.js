@@ -11,28 +11,28 @@ export const IntroCardIcon = styled.span`
   color: var(--color);
   display: block;
   fill: var(--color);
-  height: 6.4rem;
+  height: var(--size);
   margin: 0 0 2.4rem;
   transition: color 400ms, fill 400ms;
-  width: 6.4rem;
+  width: var(--size);
   will-change: color, fill;
 `;
 
 export const IntroCardTitle = styled.h1`
   color: var(--lightest);
   font-size: 2.4rem;
-  margin: 0 0 1rem 0;
-`;
-
-export const IntroCardDescription = styled.p`
-  color: var(--lightest);
-  margin: 0 0 4rem 0;
 `;
 
 export const IntroCardAction = styled.p`
+  bottom: 32px;
   color: var(--secondary);
   font-size: 1.6rem;
+  left: 0;
   line-height: 144%;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  z-index: 2;
 `;
 
 export const IntroCardContent = styled.section`
@@ -47,9 +47,6 @@ export const IntroCardContent = styled.section`
   top: 0;
   width: 100%;
   z-index: 2;
-  @media (min-width: 1024px) {
-    justify-content: flex-end;
-  }
 `;
 
 export const IntroCardOverlay = styled.div`
@@ -90,7 +87,7 @@ export const IntroCardLink = styled(Link)`
     height: 40rem;
   }
 
-  ${IntroCardTitle}, ${IntroCardDescription} {
+  ${IntroCardTitle} {
     color: var(--lightest);
   }
 
@@ -101,7 +98,7 @@ export const IntroCardLink = styled(Link)`
     will-change: color;
   }
 
-  ${IntroCardDescription}, ${IntroCardAction} {
+  ${IntroCardAction} {
     font-size: 1.6rem;
   }
 
@@ -110,8 +107,9 @@ export const IntroCardLink = styled(Link)`
     text-align: center;
   }
 
-  :hover, :focus {
-    ${IntroCardIcon}, ${IntroCardTitle}, ${IntroCardDescription} {
+  :hover,
+  :focus {
+    ${IntroCardIcon}, ${IntroCardTitle} {
       color: var(--secondary);
       fill: var(--secondary);
     }

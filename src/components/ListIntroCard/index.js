@@ -21,7 +21,6 @@ ListIntroCard.propTypes = {
   entries: PropTypes.arrayOf(
     PropTypes.shape({
       bg: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
       icon: PropTypes.any.isRequired,
       label: PropTypes.string,
       title: PropTypes.string.isRequired,

@@ -53,6 +53,7 @@ export const CoordinatorProfilePhoto = styled.img`
   height: 32rem;
   max-width: 32rem;
   object-fit: cover;
+  margin: 0 0 1.6rem 0;
   width: 100%;
 `;
 
@@ -60,7 +61,7 @@ export const CoordinatorProfileName = styled.h1`
   color: var(--secondary);
   font-size: 1.8rem;
   @media (min-width: 768px) {
-    margin: 2.4rem 0 0 0;
+    margin: 0.8rem 0 0 0;
     font-size: 2.4rem;
   }
 `;

@@ -4,6 +4,7 @@ const p = css`
   color: var(--dark);
   font-size: 1.6rem;
   line-height: 26px;
+  text-align: justify;
   :not(:last-of-type) {
     margin: 0 0 2rem 0;
   }

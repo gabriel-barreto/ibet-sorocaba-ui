@@ -5,7 +5,6 @@ import { usePagesContent } from '../../hooks';
 import { FullScreenSpinner, Layout } from '../../components';
 import MemberCard from '../../components/MemberCard';
 
-import * as C from './content';
 import * as S from './styled';
 
 function MembersPage() {
@@ -25,7 +24,9 @@ function MembersPage() {
         <S.MembersSectionTitle>Professores</S.MembersSectionTitle>
         <S.MembersSectionGroup>
           {state && state.length > 0
-            ? state.map(each => <MemberCard {...each} key={each.name} />)
+            ? state
+                .filter(each => new RegExp('prof', 'i').test(each.position))
+                .map(each => <MemberCard {...each} key={each.name} />)
             : null}
         </S.MembersSectionGroup>
       </S.MembersSection>

@@ -44,7 +44,7 @@ CoordinationSection.defaultProps = { coordinators: [] };
 CoordinationSection.propTypes = {
   coordinators: PropTypes.arrayOf(
     PropTypes.shape({
-      content: PropTypes.string.isRequired,
+      content: PropTypes.string,
       name: PropTypes.string.isRequired,
       photo: PropTypes.shape({
         url: PropTypes.string,

@@ -7,12 +7,6 @@ import * as S from './styled';
 function ContactSection({ hours }) {
   return (
     <S.ContactSectionWrapper>
-      <S.ContactSectionTitle>Lorem Ipsum Dúvidas</S.ContactSectionTitle>
-      <S.ContactSectionParagraph>
-        Lorem Ipsum has been the industry&lsquo;s standard dummy text ever since
-        the 1500s, when an unknown printer took a galley of type and scrambled
-        it to make a type specimen book
-      </S.ContactSectionParagraph>
       <S.ContactSectionButton to="/contato">
         Entre em contato com nossa equipe
       </S.ContactSectionButton>

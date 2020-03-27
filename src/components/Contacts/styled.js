@@ -23,32 +23,11 @@ export const ContactSectionWrapper = styled.section`
   @media (max-width: 1024px), (min-width: 1921px) {
     background: none;
   }
-`;
-
-export const ContactSectionTitle = styled.h1`
-  color: var(--secondary);
-  font-size: 2.4rem;
-  font-weight: 800;
-  line-height: 156%;
-  margin: 0 0 1rem 0;
-  text-align: center;
-  @media (min-width: 768px) {
-    max-width: 64rem;
+  @media screen and (min-height: 768px) {
+    background-position: center -80px;
   }
-  @media (min-width: 1200px) {
-    font-size: 3.2rem;
-  }
-`;
-
-export const ContactSectionParagraph = styled.p`
-  color: var(--dark);
-  font-size: 1.8rem;
-  font-weight: 600;
-  line-height: 144%;
-  margin: 0 0 2.4rem 0;
-  text-align: center;
-  @media (min-width: 768px) {
-    max-width: 64rem;
+  @media screen and (min-height: 1080px) {
+    background-position: center -148px;
   }
 `;
 
@@ -61,7 +40,7 @@ export const ContactSectionButton = styled(Link)`
   font-size: 1.6rem;
   font-weight: 600;
   line-height: 144%;
-  margin: 0 0 2.4rem 0;
+  margin: 4.8rem 0 2.4rem 0;
   padding: 2rem 3.2rem 1.6rem 3.2rem;
   text-align: center;
   text-transform: uppercase;

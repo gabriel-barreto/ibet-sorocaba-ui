@@ -13,18 +13,18 @@ export const entries = [
     bg: SpecializationBg,
     icon: <SpecializationIcon size={64} />,
     title: 'Especialização',
-    slug: '/',
+    slug: '/especializacao',
   },
   {
     bg: MastersBg,
     icon: <MastersIcon size={64} />,
     title: 'Mestrado',
-    slug: '/',
+    slug: '/mestrado',
   },
   {
     bg: TeachersBg,
     icon: <TeacherIcon size={64} />,
     title: 'Professores',
-    slug: '/',
+    slug: '/membros',
   },
 ];
